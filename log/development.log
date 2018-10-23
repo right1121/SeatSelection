@@ -254,3 +254,98 @@ PG::ConnectionBad - could not connect to server: No such file or directory
 
 
 Started POST "/__better_errors/1045e675f599a408/variables" for 127.0.0.1 at 2018-10-20 19:00:06 +0900
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-23 23:33:35 +0900
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+
+
+Started POST "/__better_errors/2429f8c4e10c0258/variables" for 127.0.0.1 at 2018-10-23 23:33:37 +0900
+
+
+Started POST "/__better_errors/2429f8c4e10c0258/variables" for 127.0.0.1 at 2018-10-23 23:34:00 +0900
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-24 00:09:46 +0900
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-24 00:09:59 +0900
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+
+
+Started POST "/__better_errors/8a6cfe87e9643267/variables" for 127.0.0.1 at 2018-10-24 00:09:59 +0900
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-24 00:11:24 +0900
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+
+
+Started POST "/__better_errors/8c1b3b245fea05ad/variables" for 127.0.0.1 at 2018-10-24 00:11:26 +0900
+
+
+Started POST "/__better_errors/8c1b3b245fea05ad/eval" for 127.0.0.1 at 2018-10-24 00:13:04 +0900
+
+
+Started POST "/__better_errors/8c1b3b245fea05ad/eval" for 127.0.0.1 at 2018-10-24 00:13:09 +0900
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-24 00:43:49 +0900
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+
+
+Started POST "/__better_errors/e0d1a49284300bd1/variables" for 127.0.0.1 at 2018-10-24 00:43:50 +0900
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-24 00:46:37 +0900
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+
+
+Started POST "/__better_errors/34822ea9ebfcf8f7/variables" for 127.0.0.1 at 2018-10-24 00:46:39 +0900
+
+
+Started POST "/__better_errors/34822ea9ebfcf8f7/eval" for 127.0.0.1 at 2018-10-24 00:47:01 +0900
+
+
+Started POST "/__better_errors/34822ea9ebfcf8f7/eval" for 127.0.0.1 at 2018-10-24 00:47:25 +0900
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-24 00:48:13 +0900
+
+PG::ConnectionBad - fe_sendauth: no password supplied
+:
+
+
+
+Started POST "/__better_errors/e49ba1a19cc47206/variables" for 127.0.0.1 at 2018-10-24 00:48:15 +0900
+
+
+Started POST "/__better_errors/e49ba1a19cc47206/eval" for 127.0.0.1 at 2018-10-24 00:48:22 +0900
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-24 00:56:47 +0900
+
+PG::ConnectionBad - FATAL:  database "SeatSelection_development" does not exist
+:
+
+
+
+Started POST "/__better_errors/04d2cf264335144d/variables" for 127.0.0.1 at 2018-10-24 00:56:49 +0900
