@@ -254,8 +254,6 @@ PG::ConnectionBad - could not connect to server: No such file or directory
 
 
 Started POST "/__better_errors/1045e675f599a408/variables" for 127.0.0.1 at 2018-10-20 19:00:06 +0900
-<<<<<<< HEAD
-=======
 
 
 Started GET "/" for 127.0.0.1 at 2018-10-23 23:33:35 +0900
@@ -351,7 +349,6 @@ PG::ConnectionBad - FATAL:  database "SeatSelection_development" does not exist
 
 
 Started POST "/__better_errors/04d2cf264335144d/variables" for 127.0.0.1 at 2018-10-24 00:56:49 +0900
->>>>>>> 68247e8ede4fea9e834bfd649eeb3af7eb3db99f
 
 
 Started GET "/" for 127.0.0.1 at 2018-10-28 10:39:50 +0900
