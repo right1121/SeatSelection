@@ -415,3 +415,63 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-11-02 01:24:25 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Users::SessionsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.8ms)
+  Rendered users/sessions/new.html.erb within layouts/application (177.2ms)
+Completed 200 OK in 576ms (Views: 545.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-11-02 01:24:29 +0900
+Processing by Users::RegistrationsController#new as HTML
+  Rendered users/shared/_links.html.erb (0.2ms)
+  Rendered users/registrations/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 71ms (Views: 69.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-11-02 01:24:51 +0900
+Processing by Users::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"183h6oTZtBodzeS0OjgR3Ke1xGqgBpgNVdnZxhG/Yd4a4swwSWCR7Sd9kC+Ws6Rmrh/5wN6qZTM6IVPRwv77eQ==", "user"=>{"email"=>"testdata@example.co.jp", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (2.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'testdata@example.co.jp' LIMIT 1[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "testdata@example.co.jp"], ["encrypted_password", "$2a$11$JmsCuBW6pKdfyItPX0z9vuPpWwR5ELpl5Icx2QBv/Ca0YMbKFmWnm"], ["created_at", "2018-11-01 16:24:52.043875"], ["updated_at", "2018-11-01 16:24:52.043875"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 233ms (ActiveRecord: 8.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-02 01:24:52 +0900
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 37ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-11-02 01:27:36 +0900
+Processing by Users::SessionsController#new as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 22ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-02 01:27:36 +0900
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 41ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-11-02 01:27:39 +0900
+Processing by Users::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-02 01:27:39 +0900
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 39ms (Views: 38.7ms | ActiveRecord: 0.0ms)
