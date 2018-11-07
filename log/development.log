@@ -710,3 +710,5 @@ Migrating to AddColumnToUsers (20181104154043)
   [1m[35m (0.3ms)[0m  BEGIN
   [1m[36m (8.7ms)[0m  [1mALTER TABLE "users" ADD "name" character varying NOT NULL[0m
   [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mMovie Load (1.1ms)[0m  SELECT "movies".* FROM "movies"
