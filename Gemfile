@@ -15,6 +15,7 @@ gem 'devise'
 gem 'activeadmin'
 gem 'ransack'
 gem 'slim-rails'
+gem 'bootstrap', '~> 4.1.3'
 
 group :development, :test do
   gem 'byebug'
