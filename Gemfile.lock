@@ -271,7 +271,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mini_racer
-  pg (~> 0.15)
+  pg (~> 0.20.0)
   rails (= 4.2.10)
   ransack
   rspec-rails
