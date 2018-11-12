@@ -213,3 +213,212 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+  [1m[36m (268.3ms)[0m  [1mDROP DATABASE IF EXISTS "SeatSelection_development"[0m
+  [1m[35m (270.1ms)[0m  DROP DATABASE IF EXISTS "SeatSelection_test"
+  [1m[36m (838.8ms)[0m  [1mCREATE DATABASE "SeatSelection_development" ENCODING = 'unicode'[0m
+  [1m[35m (726.3ms)[0m  CREATE DATABASE "SeatSelection_test" ENCODING = 'unicode'
+  [1m[36mSQL (1.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (18.8ms)[0m  CREATE TABLE "movies" ("id" serial primary key, "title" character varying NOT NULL, "start_date" date, "end_date" date, "start_time_array" time[], "screen_time" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.7ms)[0m  [1mCREATE  INDEX  "index_movies_on_start_date" ON "movies" USING btree ("start_date")[0m
+  [1m[35m (2.8ms)[0m  CREATE  INDEX  "index_movies_on_start_time_array" ON "movies" USING btree ("start_time_array")
+  [1m[36m (3.2ms)[0m  [1mCREATE  INDEX  "index_movies_on_title" ON "movies" USING btree ("title")[0m
+  [1m[35m (11.4ms)[0m  CREATE TABLE "reserved_seats" ("id" serial primary key, "seat_number" character varying NOT NULL, "movie_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE "ticket_types" ("id" serial primary key, "category" character varying NOT NULL, "price" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (8.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying NOT NULL, "sex" character varying, "age" character varying(3)) 
+  [1m[36m (2.8ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")
+  [1m[36m (2.8ms)[0m  [1mALTER TABLE "reserved_seats" ADD CONSTRAINT "fk_rails_60022b0f01"
+FOREIGN KEY ("movie_id")
+  REFERENCES "movies" ("id")
+[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "reserved_seats" ADD CONSTRAINT "fk_rails_44096b1cfb"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.8ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104154043')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20181101153733')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104063745')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20181104080338')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104143746')
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (12.8ms)[0m  CREATE TABLE "movies" ("id" serial primary key, "title" character varying NOT NULL, "start_date" date, "end_date" date, "start_time_array" time[], "screen_time" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.7ms)[0m  [1mCREATE  INDEX  "index_movies_on_start_date" ON "movies" USING btree ("start_date")[0m
+  [1m[35m (2.3ms)[0m  CREATE  INDEX  "index_movies_on_start_time_array" ON "movies" USING btree ("start_time_array")
+  [1m[36m (3.5ms)[0m  [1mCREATE  INDEX  "index_movies_on_title" ON "movies" USING btree ("title")[0m
+  [1m[35m (8.6ms)[0m  CREATE TABLE "reserved_seats" ("id" serial primary key, "seat_number" character varying NOT NULL, "movie_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (6.7ms)[0m  [1mCREATE TABLE "ticket_types" ("id" serial primary key, "category" character varying NOT NULL, "price" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (11.1ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying NOT NULL, "sex" character varying, "age" character varying(3)) 
+  [1m[36m (2.8ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (2.8ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")
+  [1m[36m (2.9ms)[0m  [1mALTER TABLE "reserved_seats" ADD CONSTRAINT "fk_rails_60022b0f01"
+FOREIGN KEY ("movie_id")
+  REFERENCES "movies" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "reserved_seats" ADD CONSTRAINT "fk_rails_44096b1cfb"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (6.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.7ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104154043')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20181101153733')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104063745')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20181104080338')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104143746')
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-13 01:31:03 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+:
+
+
+
+Started POST "/__better_errors/83c5bd98a412cad0/variables" for 127.0.0.1 at 2018-11-13 01:31:03 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateAdminUsers (20181112162934)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (8.1ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.1ms)[0m  CREATE UNIQUE INDEX  "index_admin_users_on_email" ON "admin_users"  ("email")
+  [1m[36m (2.1ms)[0m  [1mCREATE UNIQUE INDEX  "index_admin_users_on_reset_password_token" ON "admin_users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20181112162934"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateActiveAdminComments (20181112162944)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (10.2ms)[0m  [1mCREATE TABLE "active_admin_comments" ("id" serial primary key, "namespace" character varying, "body" text, "resource_id" integer, "resource_type" character varying, "author_id" integer, "author_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.2ms)[0m  CREATE  INDEX  "index_active_admin_comments_on_namespace" ON "active_admin_comments"  ("namespace")
+  [1m[36m (3.4ms)[0m  [1mCREATE  INDEX  "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments"  ("author_type", "author_id")[0m
+  [1m[35m (2.9ms)[0m  CREATE  INDEX  "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments"  ("resource_type", "resource_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20181112162944"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'active_admin_comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'admin_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'movies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reserved_seats'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ticket_types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "一般"], ["price", 1800], ["created_at", "2018-11-12 16:31:48.586589"], ["updated_at", "2018-11-12 16:31:48.586589"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "大学生"], ["price", 1500], ["created_at", "2018-11-12 16:31:48.593341"], ["updated_at", "2018-11-12 16:31:48.593341"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "中・高校生"], ["price", 1000], ["created_at", "2018-11-12 16:31:48.595214"], ["updated_at", "2018-11-12 16:31:48.595214"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "シニア割引"], ["price", 1100], ["created_at", "2018-11-12 16:31:48.596871"], ["updated_at", "2018-11-12 16:31:48.596871"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "障碍者割引"], ["price", 1000], ["created_at", "2018-11-12 16:31:48.598418"], ["updated_at", "2018-11-12 16:31:48.598418"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (1.1ms)[0m  SELECT  1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'admin@example.com' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "admin_users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@example.com"], ["encrypted_password", "$2a$11$DgMQrRBuehMuF4bghR6YFuaraeXILHeVJGXlgZ2Q1o3k.pjytHTj."], ["created_at", "2018-11-12 16:31:48.768154"], ["updated_at", "2018-11-12 16:31:48.768154"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-13 01:32:05 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 22ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-11-13 01:32:05 +0900
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/devise/shared/_links.erb (1.5ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (108.9ms)
+Completed 200 OK in 1100ms (Views: 1087.5ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2018-11-13 01:32:22 +0900
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tXVzBC5TIfL8xLd+V28GcFZuNqFecunvNRO+nk7LgpCJ8vmQKdrBK6XCXfGWGDCfE+M7sunyOqv/ppiW4wy/gQ==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[35mAdminUser Load (1.2ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 236ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-13 01:32:22 +0900
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.2ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (149.4ms)
+Completed 200 OK in 162ms (Views: 157.7ms | ActiveRecord: 0.2ms)
