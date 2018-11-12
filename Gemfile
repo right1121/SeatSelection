@@ -14,6 +14,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'activeadmin'
 gem 'ransack'
+gem 'cancan'
+gem 'draper'
+gem 'pundit'
 gem 'slim-rails'
 gem 'bootstrap', '~> 4.1.3'
 
