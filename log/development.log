@@ -229,3 +229,82 @@ ORDER BY c.conname
   [1m[35m (0.3ms)[0m  BEGIN
   [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "障碍者割引"], ["price", 1000], ["created_at", "2018-11-12 13:42:13.872435"], ["updated_at", "2018-11-12 13:42:13.872435"]]
   [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (49.5ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "一般"], ["price", 1800], ["created_at", "2018-11-13 14:07:54.074713"], ["updated_at", "2018-11-13 14:07:54.074713"]]
+  [1m[35m (44.4ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "大学生"], ["price", 1500], ["created_at", "2018-11-13 14:07:54.175506"], ["updated_at", "2018-11-13 14:07:54.175506"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "中・高校生"], ["price", 1000], ["created_at", "2018-11-13 14:07:54.183034"], ["updated_at", "2018-11-13 14:07:54.183034"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "シニア割引"], ["price", 1100], ["created_at", "2018-11-13 14:07:54.188393"], ["updated_at", "2018-11-13 14:07:54.188393"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "障碍者割引"], ["price", 1000], ["created_at", "2018-11-13 14:07:54.193377"], ["updated_at", "2018-11-13 14:07:54.193377"]]
+  [1m[35m (1.8ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "一般"], ["price", 1800], ["created_at", "2018-11-13 14:08:57.650334"], ["updated_at", "2018-11-13 14:08:57.650334"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "大学生"], ["price", 1500], ["created_at", "2018-11-13 14:08:57.656441"], ["updated_at", "2018-11-13 14:08:57.656441"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "中・高校生"], ["price", 1000], ["created_at", "2018-11-13 14:08:57.659659"], ["updated_at", "2018-11-13 14:08:57.659659"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.1ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "シニア割引"], ["price", 1100], ["created_at", "2018-11-13 14:08:57.662738"], ["updated_at", "2018-11-13 14:08:57.662738"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "障碍者割引"], ["price", 1000], ["created_at", "2018-11-13 14:08:57.668861"], ["updated_at", "2018-11-13 14:08:57.668861"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "一般"], ["price", 1800], ["created_at", "2018-11-13 14:09:19.931213"], ["updated_at", "2018-11-13 14:09:19.931213"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "大学生"], ["price", 1500], ["created_at", "2018-11-13 14:09:19.938053"], ["updated_at", "2018-11-13 14:09:19.938053"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "中・高校生"], ["price", 1000], ["created_at", "2018-11-13 14:09:19.941856"], ["updated_at", "2018-11-13 14:09:19.941856"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "シニア割引"], ["price", 1100], ["created_at", "2018-11-13 14:09:19.946330"], ["updated_at", "2018-11-13 14:09:19.946330"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "障碍者割引"], ["price", 1000], ["created_at", "2018-11-13 14:09:19.949532"], ["updated_at", "2018-11-13 14:09:19.949532"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (20.0ms)[0m  INSERT INTO "movies" ("title", "start_date", "start_time_array", "screen_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["title", "バック・トゥ・ザ・フューチャー"], ["start_date", "2018-10-19"], ["start_time_array", "{'2000-01-01 10:00:00','2000-01-01 15:00:00','2000-01-01 19:00:00'}"], ["screen_time", 3], ["created_at", "2018-11-13 14:09:19.962871"], ["updated_at", "2018-11-13 14:09:19.962871"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[36mMovie Load (41.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (1.0ms)[0m  [1mROLLBACK[0m
+  [1m[35mMovie Load (0.9ms)[0m  SELECT "movies".* FROM "movies"
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (42.6ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "一般"], ["price", 1800], ["created_at", "2018-11-13 14:29:49.644840"], ["updated_at", "2018-11-13 14:29:49.644840"]]
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "大学生"], ["price", 1500], ["created_at", "2018-11-13 14:29:49.693535"], ["updated_at", "2018-11-13 14:29:49.693535"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "中・高校生"], ["price", 1000], ["created_at", "2018-11-13 14:29:49.698869"], ["updated_at", "2018-11-13 14:29:49.698869"]]
+  [1m[35m (41.0ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "シニア割引"], ["price", 1100], ["created_at", "2018-11-13 14:29:49.743483"], ["updated_at", "2018-11-13 14:29:49.743483"]]
+  [1m[36m (4.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "障碍者割引"], ["price", 1000], ["created_at", "2018-11-13 14:29:49.750901"], ["updated_at", "2018-11-13 14:29:49.750901"]]
+  [1m[35m (1.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (43.0ms)[0m  INSERT INTO "movies" ("title", "start_date", "end_date", "start_time_array", "screen_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["title", "バック・トゥ・ザ・フューチャー"], ["start_date", "2018-10-19"], ["end_date", "2018-12-19"], ["start_time_array", "{'2000-01-01 10:00:00','2000-01-01 15:00:00','2000-01-01 19:00:00'}"], ["screen_time", 3], ["created_at", "2018-11-13 14:29:49.772429"], ["updated_at", "2018-11-13 14:29:49.772429"]]
+  [1m[36m (41.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (51.0ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'a@a.a' LIMIT 1[0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "name", "sex", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["email", "a@a.a"], ["encrypted_password", "$2a$11$rLtwL3BQ1FlnAoFykuBE4.Lfar0yB1MHjYSRKzEc7m2.vTur9Bqfm"], ["name", "ドク"], ["sex", "男"], ["age", "65"], ["created_at", "2018-11-13 14:29:50.094324"], ["updated_at", "2018-11-13 14:29:50.094324"]]
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
