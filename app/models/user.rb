@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :reseived_movies,  through: :reserved_seats,   source: :movie
-  has_many :reseived_seats,   dependent: :destroy
+  has_many :reserved_seats,   dependent: :destroy
 
 end
