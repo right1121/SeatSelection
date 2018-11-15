@@ -19,6 +19,7 @@ gem 'draper'
 gem 'pundit'
 gem 'slim-rails'
 gem 'bootstrap', '~> 4.1.3'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'byebug'
