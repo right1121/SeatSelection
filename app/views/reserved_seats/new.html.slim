@@ -1,0 +1,13 @@
+h1 ReservedSeats#index
+p Find me in app/views/reserved_seats/new.html.slim
+
+.container
+    table.table
+        tbody
+        - ('A'..'N').to_a.each do |i|
+            tr
+            - 14.times do |j|
+                - if j == 0
+                    td "#{i}"
+                - else
+                    td id="#{i}-#{j}" name="#{i}-#{j+1}" @

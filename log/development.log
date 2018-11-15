@@ -308,3 +308,760 @@ ORDER BY c.conname
   [1m[35mSQL (5.0ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "name", "sex", "age", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["email", "a@a.a"], ["encrypted_password", "$2a$11$rLtwL3BQ1FlnAoFykuBE4.Lfar0yB1MHjYSRKzEc7m2.vTur9Bqfm"], ["name", "ドク"], ["sex", "男"], ["age", "65"], ["created_at", "2018-11-13 14:29:50.094324"], ["updated_at", "2018-11-13 14:29:50.094324"]]
   [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
   [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/reseaved_seats/index" for ::1 at 2018-11-13 23:53:20 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (44.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/reseaved_seats/index"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.11) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.11) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.11) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.11) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.11) lib/rack/lock.rb:17:in `call'
+  rack (1.6.11) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.11) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+  /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+  /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (10.9ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (19.6ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (241.5ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (393.7ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (582.5ms)
+
+
+Started GET "/resarved_seats/index" for ::1 at 2018-11-13 23:53:42 +0900
+
+ActionController::RoutingError (No route matches [GET] "/resarved_seats/index"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.11) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.11) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.11) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.11) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.11) lib/rack/lock.rb:17:in `call'
+  rack (1.6.11) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.11) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+  /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+  /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.1ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (186.5ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (123.0ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/kakeyatomohiro/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (276.5ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-13 23:54:03 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (27.7ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 3998ms (Views: 3997.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/page.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/reserved_seats.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/reset.self-34b119c804e6deac121cb23d9ed01ddbb758d94a4ded3f999cff5e619a40ad25.css?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/application.self-ffd7c9c3eaba27ea6120df621df7a163c8cd754fbe06fc986627066196fa43d6.css?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/movies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/reserved_seats.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/popper.self-23d0e4674571ef619dc97acba7169155cec531ebea3136429568f24ab0755da7.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/bootstrap/util.self-32c933709f03802cab6990dadb15257dcca78c60790311303e1f69319bb5ec09.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/bootstrap/scrollspy.self-9c4010d9389b7b27e3247fcbb0cc4425f15d7df2d0d3464b9c3a9022632f1dc8.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/bootstrap/collapse.self-f40766e711b829f346a1d3f6ca132348a77eef7cdfd28732ba8afcf2c996dc89.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/bootstrap/alert.self-6174a81cd2fbcf8bc9949957661638e9716cb0390e0fcf29fafcdc0f2351c58f.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/bootstrap/tooltip.self-b2c5fc72d4e22d1516e9713d3ee1ffa6f92ed11722175e2a9b88c3acbe0bbc09.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/bootstrap/popover.self-3d5b251608f27dbdae33a816e4736ae6e8a8e1729af1fc0c10eb234bf0f494c5.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/bootstrap/dropdown.self-7abc7d81497e5228d193f1151e74cd9f683732d7ab3e9654f714a4d75fbd41c0.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/bootstrap/button.self-5e0c9bfb00dc1db87237215c889765533d8b0744d96538915cff2ac0e29a3825.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/bootstrap/modal.self-711cfe854709180e4c826346dd982c6df3eabc0eab949d2a1560201a139dccfa.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/bootstrap/carousel.self-684b442295b055f9cdba73cb596ffdb733024661042cfaee5637c28350efdd28.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/assets/bootstrap/tab.self-f8f47356299f63d5a6828b6954f5e92bf82d85370f16410b5ae89d3e1effdd96.js?body=1" for ::1 at 2018-11-13 23:54:07 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:15:09 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (70.0ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 489ms (Views: 461.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/page.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2018-11-14 23:15:11 +0900
+
+
+Started GET "/assets/application.self-ffd7c9c3eaba27ea6120df621df7a163c8cd754fbe06fc986627066196fa43d6.css?body=1" for ::1 at 2018-11-14 23:15:11 +0900
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2018-11-14 23:15:11 +0900
+
+
+Started GET "/assets/reserved_seats.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2018-11-14 23:15:11 +0900
+
+
+Started GET "/assets/reset.self-34b119c804e6deac121cb23d9ed01ddbb758d94a4ded3f999cff5e619a40ad25.css?body=1" for ::1 at 2018-11-14 23:15:11 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:15:44 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (62.0ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 494ms (Views: 487.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:22:57 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (137.4ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 693ms (Views: 669.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:24:09 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (93.0ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 464ms (Views: 458.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:24:19 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (18.8ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 221ms (Views: 220.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:24:31 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (12.8ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 208ms (Views: 207.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:25:14 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (62.7ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 841ms (Views: 834.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:25:53 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (16.3ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 131ms (Views: 130.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:26:06 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (40.1ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+Completed 200 OK in 238ms (Views: 236.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:26:24 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (27.9ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 172ms (Views: 171.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:41:44 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (22.5ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.0ms)
+
+NameError - uninitialized constant ActionView::CompiledTemplates::A:
+  app/views/reserved_seats/index.html.slim:7:in `_app_views_reserved_seats_index_html_slim___3444426073104760208_70173837543380'
+
+
+
+Started POST "/__better_errors/20221063f7ddc516/variables" for ::1 at 2018-11-14 23:41:45 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:42:07 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (21.7ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.0ms)
+
+NameError - uninitialized constant ActionView::CompiledTemplates::A:
+  app/views/reserved_seats/index.html.slim:7:in `_app_views_reserved_seats_index_html_slim___3444426073104760208_70173882121540'
+
+
+
+Started POST "/__better_errors/af2213de9dac34fe/variables" for ::1 at 2018-11-14 23:42:07 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:42:39 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (28.2ms)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 0.0ms)
+
+NoMethodError - undefined method `each' for 14:Integer:
+  app/views/reserved_seats/index.html.slim:7:in `_app_views_reserved_seats_index_html_slim___3444426073104760208_70173837353500'
+
+
+
+Started POST "/__better_errors/2d20cfd735c7a486/variables" for ::1 at 2018-11-14 23:42:39 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:42:48 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (3.8ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 146ms (Views: 145.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/movies.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2018-11-14 23:42:48 +0900
+
+
+Started GET "/assets/reserved_seats.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2018-11-14 23:42:48 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:43:32 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (7.5ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 103ms (Views: 102.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:43:58 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+Slim::Parser::SyntaxError - Unknown line indicator
+  /Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim, Line 11, Column 20
+    @
+    ^
+:
+
+
+
+Started POST "/__better_errors/f133673bfb042d5e/variables" for ::1 at 2018-11-14 23:43:58 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:44:13 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (7.8ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 111ms (Views: 110.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:47:01 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (12.6ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+
+Slim::Parser::SyntaxError - Unknown line indicator
+  /Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim, Line 11, Column 20
+    @
+    ^
+:
+
+
+
+Started POST "/__better_errors/828fecda22373b07/variables" for ::1 at 2018-11-14 23:47:01 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:47:21 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+Slim::Parser::SyntaxError - Unknown line indicator
+  /Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim, Line 11, Column 20
+    @
+    ^
+:
+
+
+
+Started POST "/__better_errors/15dfa301ec8235d2/variables" for ::1 at 2018-11-14 23:47:21 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:48:18 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (12.4ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+Slim::Parser::SyntaxError - Unknown line indicator
+  /Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim, Line 11, Column 20
+    @
+    ^
+:
+
+
+
+Started POST "/__better_errors/dc44f769cc751532/variables" for ::1 at 2018-11-14 23:48:18 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:48:24 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+Slim::Parser::SyntaxError - Unknown line indicator
+  /Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim, Line 11, Column 20
+    @
+    ^
+:
+
+
+
+Started POST "/__better_errors/4738e9d6ec678633/variables" for ::1 at 2018-11-14 23:48:24 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:48:29 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (15.4ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 203ms (Views: 202.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:49:09 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (5.4ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 138ms (Views: 137.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:50:15 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms)
+
+Slim::Parser::SyntaxError - Unknown line indicator
+  /Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim, Line 11, Column 20
+    @
+    ^
+:
+
+
+
+Started POST "/__better_errors/294d326067d65c27/variables" for ::1 at 2018-11-14 23:50:15 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:50:23 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (6.7ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 103ms (Views: 102.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:50:55 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (6.1ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+SyntaxError - syntax error, unexpected ';'
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:15: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^:
+  app/views/reserved_seats/index.html.slim:11:in `'
+
+
+
+Started POST "/__better_errors/07fd48e2d251825b/variables" for ::1 at 2018-11-14 23:50:55 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:51:25 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (8.8ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 142ms (Views: 141.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:52:07 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (8.1ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 96ms (Views: 95.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:52:31 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (7.8ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 102ms (Views: 101.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:52:48 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+SyntaxError - syntax error, unexpected ')', expecting tSTRING_DEND
+...attributes1 = ("#{i+1}"-"#{j+1)"); if Array === _slim_codeat...
+...                              ^
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:10: syntax error, unexpected keyword_class, expecting tSTRING_DEND
+...put_buffer.safe_concat((" class=\"".freeze)); @output_buffer...
+...                          ^~~~~
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:10: syntax error, unexpected ')', expecting tSTRING_DEND
+...afe_concat((" class=\"".freeze)); @output_buffer.safe_concat...
+...                              ^
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:10: syntax error, unexpected keyword_end, expecting tSTRING_DEND
+...safe_concat(("\"".freeze)); end; @output_buffer.safe_concat(...
+...                            ^~~
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:12: syntax error, unexpected keyword_end, expecting tSTRING_DEND
+; end; end; @output_buffer.safe_co...
+  ^~~
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:13: syntax error, unexpected keyword_ensure, expecting tSTRING_DEND
+          ensure
+          ^~~~~~
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:15: syntax error, unexpected keyword_end, expecting tSTRING_DEND
+          end
+          ^~~:
+  app/views/reserved_seats/index.html.slim:10:in `'
+
+
+
+Started POST "/__better_errors/84de560a060062ba/variables" for ::1 at 2018-11-14 23:52:48 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:53:00 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+SyntaxError - syntax error, unexpected ')', expecting tSTRING_DEND
+...attributes1 = ["#{i+1}"-"#{j+1)"]; if Array === _slim_codeat...
+...                              ^
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:10: syntax error, unexpected keyword_class, expecting tSTRING_DEND
+...put_buffer.safe_concat((" class=\"".freeze)); @output_buffer...
+...                          ^~~~~
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:10: syntax error, unexpected ')', expecting tSTRING_DEND
+...afe_concat((" class=\"".freeze)); @output_buffer.safe_concat...
+...                              ^
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:10: syntax error, unexpected keyword_end, expecting tSTRING_DEND
+...safe_concat(("\"".freeze)); end; @output_buffer.safe_concat(...
+...                            ^~~
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:12: syntax error, unexpected keyword_end, expecting tSTRING_DEND
+; end; end; @output_buffer.safe_co...
+  ^~~
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:13: syntax error, unexpected keyword_ensure, expecting tSTRING_DEND
+          ensure
+          ^~~~~~
+/Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim:15: syntax error, unexpected keyword_end, expecting tSTRING_DEND
+          end
+          ^~~:
+  app/views/reserved_seats/index.html.slim:10:in `'
+
+
+
+Started POST "/__better_errors/4aba9658cb5fea9d/variables" for ::1 at 2018-11-14 23:53:00 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:53:52 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (3.9ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 92ms (Views: 91.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:58:11 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (16.4ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.0ms)
+
+NoMethodError - undefined method `times' for #<Array:0x00007fa53c241538>:
+  app/views/reserved_seats/index.html.slim:7:in `_app_views_reserved_seats_index_html_slim___3444426073104760208_70173827845840'
+
+
+
+Started POST "/__better_errors/5d6baaf2dd004dd4/variables" for ::1 at 2018-11-14 23:58:11 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-14 23:58:35 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (19.4ms)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms)
+
+NoMethodError - undefined method `times' for #<Array:0x00007fa5433bb718>:
+  app/views/reserved_seats/index.html.slim:7:in `_app_views_reserved_seats_index_html_slim___3444426073104760208_70173835029680'
+
+
+
+Started POST "/__better_errors/9cc41a4299e545a3/variables" for ::1 at 2018-11-14 23:58:35 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 00:00:11 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (30.3ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.0ms)
+
+TypeError - no implicit conversion of Integer into String:
+  app/views/reserved_seats/index.html.slim:10:in `block (2 levels) in _app_views_reserved_seats_index_html_slim___3444426073104760208_70173829696040'
+  app/views/reserved_seats/index.html.slim:9:in `block in _app_views_reserved_seats_index_html_slim___3444426073104760208_70173829696040'
+  app/views/reserved_seats/index.html.slim:7:in `_app_views_reserved_seats_index_html_slim___3444426073104760208_70173829696040'
+
+
+
+Started POST "/__better_errors/e584610e88638d5d/variables" for ::1 at 2018-11-15 00:00:12 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 00:00:25 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (47.6ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 221ms (Views: 217.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 00:01:44 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+Completed 200 OK in 96ms (Views: 95.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 00:02:04 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (135.8ms)
+Completed 500 Internal Server Error in 153ms (ActiveRecord: 0.0ms)
+
+NameError - undefined local variable or method `i' for #<#<Class:0x00007fa53c4d5718>:0x00007fa541eb5d00>:
+  app/views/reserved_seats/index.html.slim:10:in `block in _app_views_reserved_seats_index_html_slim___3444426073104760208_70173876135160'
+  app/views/reserved_seats/index.html.slim:9:in `_app_views_reserved_seats_index_html_slim___3444426073104760208_70173876135160'
+
+
+
+Started POST "/__better_errors/d5e3ed15f4d02b60/variables" for ::1 at 2018-11-15 00:02:04 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 00:02:11 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (8.2ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 111ms (Views: 110.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 00:02:44 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (9.8ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 98ms (Views: 96.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:47:49 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (327.4ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 1241ms (Views: 1217.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:50:32 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (501.2ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 1175ms (Views: 1161.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:50:48 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (102.0ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 379ms (Views: 378.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:51:22 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (34.1ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 272ms (Views: 270.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:52:31 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (54.5ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+Completed 200 OK in 568ms (Views: 567.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:52:45 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (36.7ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 265ms (Views: 262.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:52:55 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (21.5ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 194ms (Views: 193.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:55:11 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (21.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 162ms (Views: 161.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:55:13 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 112ms (Views: 111.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:55:40 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (22.8ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms)
+
+SyntaxError - syntax error, unexpected '=', expecting ')'
+...ls.escape_html_safe((i if j+1 = 1))).to_s)); @output_buffer....
+...                              ^:
+  app/views/reserved_seats/index.html.slim:10:in `'
+
+
+
+Started POST "/__better_errors/721c59a9edb2842b/variables" for ::1 at 2018-11-15 21:55:41 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:55:52 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms)
+
+SyntaxError - syntax error, unexpected '=', expecting ')'
+....escape_html_safe((i if (j+1) = 1))).to_s)); @output_buffer....
+...                              ^:
+  app/views/reserved_seats/index.html.slim:10:in `'
+
+
+
+Started POST "/__better_errors/287d1c37bfe95ee2/variables" for ::1 at 2018-11-15 21:55:53 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:56:07 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (14.2ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 158ms (Views: 157.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:58:03 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (16.2ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.0ms)
+
+Slim::Parser::SyntaxError - Unknown line indicator
+  /Users/kakeyatomohiro/programming/rails_apps/ruby2.5.0/SeatSelection/app/views/reserved_seats/index.html.slim, Line 10, Column 16
+    "#{td i if (j+1) == 1}" 
+    ^
+:
+
+
+
+Started POST "/__better_errors/cd80ac88fcafa70b/variables" for ::1 at 2018-11-15 21:58:03 +0900
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 21:59:35 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (10.0ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 143ms (Views: 142.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/reserved_seats/index" for ::1 at 2018-11-15 22:00:08 +0900
+Processing by ReservedSeatsController#index as HTML
+  Rendered reserved_seats/index.html.slim within layouts/application (11.8ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 144ms (Views: 143.6ms | ActiveRecord: 0.0ms)

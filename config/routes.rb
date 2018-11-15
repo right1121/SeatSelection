@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, module: :users
   root 'pages#index'
 
-  resources :movies
+  resources :movies do
+    resources :reserved_seats
+  end
 end
