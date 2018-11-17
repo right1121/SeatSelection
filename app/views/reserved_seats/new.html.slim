@@ -4,14 +4,17 @@ p Find me in app/views/reserved_seats/new.html.slim
 = form_for @reserved_seat, local: true, url: movie_reserved_seats_path(1), method: :post do |f|
     .container
         table.table
-            tbody
-            - ('A'..'N').to_a.each do |i|
+            tr
+            - 14.times do |i| #一段目の番号
+                td
+                    = i if i != 0
+            - ('A'..'N').to_a.each do |i| #一列目のアルファベット
                 tr
                 - 14.times do |j|
                     - if j == 0
                         td = i
                     - else
-                        td id="#{i}-#{j}" name="#{i}-#{j+1}" 
+                        td id="#{i}-#{j}" name="#{i}-#{j}" 
                             /座席が予約されていたら「＠」を表示させる
                             - @buried_seat = @buried_seats.find_by(seat_number: "#{i} #{j}")
                             - if @buried_seat.nil?
