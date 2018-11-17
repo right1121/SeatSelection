@@ -4,7 +4,7 @@ class ReservedSeatsController < ApplicationController
   
   def new
     @reserved_seat = ReservedSeat.new
-    @buried_seats = ReservedSeat.where(movie_id: params[:movie_id])  #映画の予約済みの座席を呼び出す
+    @buried_seats = ReservedSeat.where(movie_id: params[:movie_id]) #指定された映画の座席予約情報を呼び出す
   end
 
   def create
