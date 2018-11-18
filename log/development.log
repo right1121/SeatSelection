@@ -9442,3 +9442,771 @@ DETAIL:  Failing row contains (21, null, 1, 1, 2018-11-17 13:17:38.843065, 2018-
 
 
 Started POST "/__better_errors/adb0287b716a66bb/variables" for ::1 at 2018-11-17 22:17:39 +0900
+
+
+Started GET "/?msg=uuu" for ::1 at 2018-11-18 22:56:36 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (182.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Parameters: {"msg"=>"uuu"}
+  [1m[35mTicketType Load (8.6ms)[0m  SELECT  "ticket_types".* FROM "ticket_types" WHERE "ticket_types"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered pages/index.html.slim within layouts/application (16.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 1136ms (Views: 842.6ms | ActiveRecord: 145.0ms)
+
+
+Started GET "/movies" for ::1 at 2018-11-18 22:56:43 +0900
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (90.8ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.slim within layouts/application (114.5ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 245ms (Views: 136.6ms | ActiveRecord: 94.1ms)
+
+
+Started GET "/movies/1" for ::1 at 2018-11-18 22:56:44 +0900
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered movies/show.html.slim within layouts/application (2.8ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 128ms (Views: 125.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-18 22:56:49 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mMovie Load (12.9ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReservedSeat Load (6.8ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 1"]]
+  [1m[36mReservedSeat Load (0.7ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 2"]]
+  [1m[35mReservedSeat Load (1.1ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 3"]]
+  [1m[36mReservedSeat Load (0.6ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 4"]]
+  [1m[35mReservedSeat Load (0.6ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 5"]]
+  [1m[36mReservedSeat Load (0.6ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 6"]]
+  [1m[35mReservedSeat Load (0.5ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 7"]]
+  [1m[36mReservedSeat Load (0.5ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 8"]]
+  [1m[35mReservedSeat Load (0.5ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 9"]]
+  [1m[36mReservedSeat Load (0.5ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 10"]]
+  [1m[35mReservedSeat Load (1.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 11"]]
+  [1m[36mReservedSeat Load (0.6ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 12"]]
+  [1m[35mReservedSeat Load (0.6ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 13"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 1"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 2"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 3"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 4"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 5"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 7"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 8"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 9"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 10"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 11"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 12"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 13"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 1"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 2"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 3"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 4"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 5"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 6"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 7"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 8"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 9"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 10"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 11"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 12"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 13"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 1"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 2"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 3"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 4"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 5"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 6"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 7"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 8"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 9"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 10"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 11"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 12"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 13"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 1"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 2"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 3"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 4"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 5"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 6"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 7"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 8"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 9"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 10"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 11"]]
+  [1m[36mReservedSeat Load (0.7ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 12"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 13"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 1"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 2"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 3"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 4"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 5"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 7"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 8"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 9"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 10"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 11"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 12"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 13"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 1"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 2"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 3"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 4"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 5"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 6"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 7"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 8"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 9"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 10"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 11"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 12"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 13"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 1"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 2"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 3"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 4"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 5"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 7"]]
+  [1m[35mReservedSeat Load (1.6ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 8"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 9"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 10"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 11"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 12"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 13"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 1"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 2"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 3"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 4"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 5"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 6"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 7"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 8"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 9"]]
+  [1m[36mReservedSeat Load (1.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 10"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 11"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 12"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 13"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 1"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 2"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 3"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 4"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 5"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 7"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 8"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 9"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 10"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 11"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 12"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 13"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 1"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 2"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 3"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 4"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 5"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 6"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 7"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 8"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 9"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 10"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 11"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 12"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 13"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 1"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 2"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 3"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 4"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 5"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 7"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 8"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 9"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 10"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 11"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 12"]]
+  [1m[36mReservedSeat Load (0.5ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 13"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 1"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 2"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 3"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 4"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 5"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 6"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 7"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 8"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 9"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 10"]]
+  [1m[35mReservedSeat Load (0.5ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 11"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 12"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 13"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 1"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 2"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 3"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 4"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 5"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 7"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 8"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 9"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 10"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 11"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 12"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 13"]]
+  Rendered reserved_seats/new.html.slim within layouts/application (539.3ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 712ms (Views: 576.7ms | ActiveRecord: 118.6ms)
+
+
+Started POST "/movies/1/reserved_seats" for ::1 at 2018-11-18 22:57:18 +0900
+Processing by ReservedSeatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"t41ldwwvyl9oz4WJpI7R22e6BhMTCUq4YzEv4g8J/QC0/FsmqAkKV6dnKfieXJvtVedmGtyn5UdkXzvM8zRZ6g==", "reserved_seat"=>{"seat_number"=>["D 1", "D 2", "D 3"]}, "commit"=>"Create Reserved seat", "movie_id"=>"1"}
+  [1m[35mUser Load (9.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Unpermitted parameter: seat_number
+  [1m[36m (39.9ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (99.6ms)[0m  INSERT INTO "reserved_seats" ("user_id", "movie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 1], ["movie_id", 1], ["created_at", "2018-11-18 13:57:18.436821"], ["updated_at", "2018-11-18 13:57:18.436821"]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 344ms (ActiveRecord: 236.0ms)
+
+PG::NotNullViolation - ERROR:  null value in column "seat_number" violates not-null constraint
+DETAIL:  Failing row contains (22, null, 1, 1, 2018-11-18 13:57:18.436821, 2018-11-18 13:57:18.436821).
+:
+  app/controllers/reserved_seats_controller.rb:15:in `create'
+
+
+
+Started POST "/__better_errors/f599e1e71cb5e542/variables" for ::1 at 2018-11-18 22:57:18 +0900
+  [1m[36mReservedSeat Load (23.3ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats"[0m
+  [1m[35mSQL (12.4ms)[0m  DELETE FROM "reserved_seats"
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-18 23:09:06 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mMovie Load (50.0ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (0.5ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 1"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 2"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 3"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 4"]]
+  [1m[36mReservedSeat Load (0.9ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 5"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 7"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 8"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 9"]]
+  [1m[35mReservedSeat Load (0.8ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 10"]]
+  [1m[36mReservedSeat Load (1.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 11"]]
+  [1m[35mReservedSeat Load (0.5ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "A 12"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "A 13"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 1"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 2"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 3"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 4"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 5"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 6"]]
+  [1m[35mReservedSeat Load (0.6ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 7"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 8"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 9"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 10"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 11"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "B 12"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "B 13"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 1"]]
+  [1m[35mReservedSeat Load (1.6ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 2"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 3"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 4"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 5"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 7"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 8"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 9"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 10"]]
+  [1m[36mReservedSeat Load (0.8ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 11"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "C 12"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "C 13"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 1"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 2"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 3"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 4"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 5"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 6"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 7"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 8"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 9"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 10"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 11"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "D 12"]]
+  [1m[35mReservedSeat Load (1.0ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "D 13"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 1"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 2"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 3"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 4"]]
+  [1m[36mReservedSeat Load (0.5ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 5"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 7"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 8"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 9"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 10"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 11"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "E 12"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "E 13"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 1"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 2"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 3"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 4"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 5"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 6"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 7"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 8"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 9"]]
+  [1m[36mReservedSeat Load (1.0ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 10"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 11"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "F 12"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "F 13"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 1"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 2"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 3"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 4"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 5"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 7"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 8"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 9"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 10"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 11"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "G 12"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "G 13"]]
+  [1m[35mReservedSeat Load (1.8ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 1"]]
+  [1m[36mReservedSeat Load (0.5ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 2"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 3"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 4"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 5"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 6"]]
+  [1m[35mReservedSeat Load (2.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 7"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 8"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 9"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 10"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 11"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "H 12"]]
+  [1m[35mReservedSeat Load (0.5ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "H 13"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 1"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 2"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 3"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 4"]]
+  [1m[36mReservedSeat Load (0.5ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 5"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 7"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 8"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 9"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 10"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 11"]]
+  [1m[35mReservedSeat Load (1.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "I 12"]]
+  [1m[36mReservedSeat Load (0.7ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "I 13"]]
+  [1m[35mReservedSeat Load (0.6ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 1"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 2"]]
+  [1m[35mReservedSeat Load (0.5ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 3"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 4"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 5"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 6"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 7"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 8"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 9"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 10"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 11"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "J 12"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "J 13"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 1"]]
+  [1m[35mReservedSeat Load (0.6ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 2"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 3"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 4"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 5"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 6"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 7"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 8"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 9"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 10"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 11"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "K 12"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "K 13"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 1"]]
+  [1m[36mReservedSeat Load (0.5ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 2"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 3"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 4"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 5"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 6"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 7"]]
+  [1m[36mReservedSeat Load (1.5ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 8"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 9"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 10"]]
+  [1m[35mReservedSeat Load (0.7ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 11"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "L 12"]]
+  [1m[35mReservedSeat Load (1.0ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "L 13"]]
+  [1m[36mReservedSeat Load (0.9ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 1"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 2"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 3"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 4"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 5"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 6"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 7"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 8"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 9"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 10"]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 11"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "M 12"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "M 13"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 1"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 2"]]
+  [1m[35mReservedSeat Load (0.2ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 3"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 4"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 5"]]
+  [1m[36mReservedSeat Load (1.5ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 6"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 7"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 8"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 9"]]
+  [1m[36mReservedSeat Load (0.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 10"]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 11"]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number", "N 12"]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number" = $2 LIMIT 1  [["movie_id", 1], ["seat_number", "N 13"]]
+  Rendered reserved_seats/new.html.slim within layouts/application (726.3ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+Completed 200 OK in 1108ms (Views: 936.4ms | ActiveRecord: 120.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (5.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnArrayReservedSeats (20181118141434)
+  [1m[35m (40.9ms)[0m  BEGIN
+  [1m[36m (155.5ms)[0m  [1mALTER TABLE "reserved_seats" ALTER COLUMN "seat_num" TYPE character varying[][0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnArrayReservedSeats (20181118141434)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (2.8ms)[0m  [1mALTER TABLE "reserved_seats" ALTER COLUMN "seat_number" TYPE character varying[][0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnArrayReservedSeats (20181118141434)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (43.6ms)[0m  [1mALTER TABLE "reserved_seats" ALTER COLUMN "seat_number" TYPE character varying[][0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (48.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'movies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reserved_seats'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ticket_types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (4.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (23.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnArrayReservedSeats (20181118143738)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnArrayReservedSeats (20181118143738)
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnArrayReservedSeats (20181118143738)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (6.4ms)[0m  [1mALTER TABLE "reserved_seats" ALTER COLUMN "seat_number" TYPE character varying[][0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnArrayReservedSeats (20181118143738)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnArrayReservedSeats (20181118143738)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (70.0ms)[0m  [1mALTER TABLE "reserved_seats" ADD "seat_number_array" character varying[] NOT NULL[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20181118143738"]]
+  [1m[36m (5.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (5.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'movies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reserved_seats'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ticket_types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'movies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.3ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reserved_seats'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ticket_types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-19 00:00:55 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mMovie Load (1.4ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (14.2ms)[0m  [1mSELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number_array" = $2 LIMIT 1[0m  [["movie_id", 1], ["seat_number_array", "A 1"]]
+  Rendered reserved_seats/new.html.slim within layouts/application (141.4ms)
+Completed 500 Internal Server Error in 368ms (ActiveRecord: 113.0ms)
+
+ActiveRecord::StatementInvalid - PG::InvalidTextRepresentation: ERROR:  malformed array literal: "A 1"
+DETAIL:  Array value must start with "{" or dimension information.
+: SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1 AND "reserved_seats"."seat_number_array" = $2 LIMIT 1:
+  app/views/reserved_seats/new.html.slim:19:in `block (3 levels) in _app_views_reserved_seats_new_html_slim___754642772274943670_70163260003200'
+  app/views/reserved_seats/new.html.slim:13:in `block (2 levels) in _app_views_reserved_seats_new_html_slim___754642772274943670_70163260003200'
+  app/views/reserved_seats/new.html.slim:11:in `block in _app_views_reserved_seats_new_html_slim___754642772274943670_70163260003200'
+  app/views/reserved_seats/new.html.slim:4:in `_app_views_reserved_seats_new_html_slim___754642772274943670_70163260003200'
+
+
+
+Started POST "/__better_errors/7de1dc93b79a78f6/variables" for ::1 at 2018-11-19 00:00:58 +0900
+  [1m[35mReservedSeat Load (83.1ms)[0m  SELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1  [["movie_id", 1]]
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-19 00:03:29 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mMovie Load (85.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered reserved_seats/new.html.slim within layouts/application (280.8ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 991ms (Views: 886.0ms | ActiveRecord: 87.4ms)
+
+
+Started POST "/movies/1/reserved_seats" for ::1 at 2018-11-19 00:03:36 +0900
+Processing by ReservedSeatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z71O1BvvMvbDcgGakJuujgH8rwsRW8pbPDFq6nBJdwfMzHCFv8ny/gzareuqSeS4M6HPAt71ZaQ7X37EjHTT7Q==", "reserved_seat"=>{"seat_number_array"=>["A 1", "A 2", "A 3"]}, "commit"=>"Create Reserved seat", "movie_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Unpermitted parameter: seat_number_array
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (173.1ms)[0m  INSERT INTO "reserved_seats" ("user_id", "movie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 1], ["movie_id", 1], ["created_at", "2018-11-18 15:03:36.714048"], ["updated_at", "2018-11-18 15:03:36.714048"]]
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 214ms (ActiveRecord: 184.8ms)
+
+PG::NotNullViolation - ERROR:  null value in column "seat_number" violates not-null constraint
+DETAIL:  Failing row contains (23, null, 1, 1, 2018-11-18 15:03:36.714048, 2018-11-18 15:03:36.714048, null).
+:
+  app/controllers/reserved_seats_controller.rb:15:in `create'
+
+
+
+Started POST "/__better_errors/f883a24a5657f85f/variables" for ::1 at 2018-11-19 00:03:37 +0900
+
+
+Started POST "/__better_errors/f883a24a5657f85f/eval" for ::1 at 2018-11-19 00:04:26 +0900
+
+
+Started POST "/__better_errors/f883a24a5657f85f/eval" for ::1 at 2018-11-19 00:07:41 +0900
+
+
+Started POST "/__better_errors/f883a24a5657f85f/eval" for ::1 at 2018-11-19 00:07:45 +0900
+
+
+Started POST "/movies/1/reserved_seats" for ::1 at 2018-11-19 00:09:10 +0900
+Processing by ReservedSeatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z71O1BvvMvbDcgGakJuujgH8rwsRW8pbPDFq6nBJdwfMzHCFv8ny/gzareuqSeS4M6HPAt71ZaQ7X37EjHTT7Q==", "reserved_seat"=>{"seat_number_array"=>["A 1", "A 2", "A 3"]}, "commit"=>"Create Reserved seat", "movie_id"=>"1"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Unpermitted parameter: seat_number_array
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (47.9ms)[0m  INSERT INTO "reserved_seats" ("user_id", "movie_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 1], ["movie_id", 1], ["created_at", "2018-11-18 15:09:10.684898"], ["updated_at", "2018-11-18 15:09:10.684898"]]
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 49.6ms)
+
+PG::NotNullViolation - ERROR:  null value in column "seat_number" violates not-null constraint
+DETAIL:  Failing row contains (24, null, 1, 1, 2018-11-18 15:09:10.684898, 2018-11-18 15:09:10.684898, null).
+:
+  app/controllers/reserved_seats_controller.rb:15:in `create'
+
+
+
+Started POST "/__better_errors/6e8486ff8dae19f9/variables" for ::1 at 2018-11-19 00:09:11 +0900
+
+
+Started POST "/__better_errors/6e8486ff8dae19f9/eval" for ::1 at 2018-11-19 00:09:48 +0900
+Unpermitted parameter: seat_number_array
+
+
+Started POST "/__better_errors/6e8486ff8dae19f9/eval" for ::1 at 2018-11-19 00:09:58 +0900
+
+
+Started POST "/movies/1/reserved_seats" for ::1 at 2018-11-19 00:10:45 +0900
+Processing by ReservedSeatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z71O1BvvMvbDcgGakJuujgH8rwsRW8pbPDFq6nBJdwfMzHCFv8ny/gzareuqSeS4M6HPAt71ZaQ7X37EjHTT7Q==", "reserved_seat"=>{"seat_number_array"=>["A 1", "A 2", "A 3"]}, "commit"=>"Create Reserved seat", "movie_id"=>"1"}
+  [1m[35mUser Load (3.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Unpermitted parameter: seat_number_array
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (49.9ms)[0m  INSERT INTO "reserved_seats" ("user_id", "movie_id", "seat_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["user_id", 1], ["movie_id", 1], ["seat_number", "1"], ["created_at", "2018-11-18 15:10:45.536244"], ["updated_at", "2018-11-18 15:10:45.536244"]]
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 110.1ms)
+
+PG::NotNullViolation - ERROR:  null value in column "seat_number_array" violates not-null constraint
+DETAIL:  Failing row contains (25, 1, 1, 1, 2018-11-18 15:10:45.536244, 2018-11-18 15:10:45.536244, null).
+:
+  app/controllers/reserved_seats_controller.rb:16:in `create'
+
+
+
+Started POST "/__better_errors/8bda343c55b5e265/variables" for ::1 at 2018-11-19 00:10:45 +0900
+
+
+Started POST "/__better_errors/8bda343c55b5e265/eval" for ::1 at 2018-11-19 00:10:52 +0900
+
+
+Started POST "/movies/1/reserved_seats" for ::1 at 2018-11-19 00:13:22 +0900
+Processing by ReservedSeatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z71O1BvvMvbDcgGakJuujgH8rwsRW8pbPDFq6nBJdwfMzHCFv8ny/gzareuqSeS4M6HPAt71ZaQ7X37EjHTT7Q==", "reserved_seat"=>{"seat_number_array"=>["A 1", "A 2", "A 3"]}, "commit"=>"Create Reserved seat", "movie_id"=>"1"}
+  [1m[35mUser Load (58.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (57.0ms)[0m  INSERT INTO "reserved_seats" ("seat_number_array", "user_id", "movie_id", "seat_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["seat_number_array", "{\"A 1\",\"A 2\",\"A 3\"}"], ["user_id", 1], ["movie_id", 1], ["seat_number", "1"], ["created_at", "2018-11-18 15:13:23.243376"], ["updated_at", "2018-11-18 15:13:23.243376"]]
+  [1m[36m (41.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 290ms (ActiveRecord: 156.6ms)
+
+
+Started GET "/movies" for ::1 at 2018-11-19 00:13:23 +0900
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (41.6ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.slim within layouts/application (105.7ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 384ms (Views: 292.5ms | ActiveRecord: 83.3ms)
+  [1m[36mReservedSeat Load (3.3ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats"[0m
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT  "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."id" = $1 LIMIT 1  [["id", 26]]
+
+
+Started GET "/movies/1" for ::1 at 2018-11-19 00:15:51 +0900
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (44.0ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.slim within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 399ms (Views: 343.4ms | ActiveRecord: 44.0ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-19 00:15:52 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mMovie Load (0.9ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered reserved_seats/new.html.slim within layouts/application (52.3ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 267ms (Views: 264.1ms | ActiveRecord: 0.9ms)

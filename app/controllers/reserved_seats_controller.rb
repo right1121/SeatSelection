@@ -12,6 +12,7 @@ class ReservedSeatsController < ApplicationController
     @user = User.find(1) #仮実装。current_userにする
     @reserved_seat = @user.reserved_seats.new(reserved_seat_params)
     @reserved_seat.movie_id = params[:movie_id]
+    @reserved_seat.seat_number = 1 #あとで削除する
     if @reserved_seat.save
       redirect_to movies_path
     else
@@ -23,7 +24,8 @@ class ReservedSeatsController < ApplicationController
     params.require(:reserved_seat).permit(
       :seat_number,
       :movie_id,
-      :user_id
+      :user_id,
+      seat_number_array: [],
     )
   end
 end
