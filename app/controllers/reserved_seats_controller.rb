@@ -3,6 +3,7 @@ class ReservedSeatsController < ApplicationController
   end
   
   def new
+    @movie = Movie.find(params[:movie_id])
     @reserved_seat = ReservedSeat.new
     @buried_seats = ReservedSeat.where(movie_id: params[:movie_id]) #指定された映画の座席予約情報を呼び出す
   end

@@ -1,7 +1,7 @@
 h1 ReservedSeats#index
 p Find me in app/views/reserved_seats/new.html.slim
 
-= form_for @reserved_seat, local: true, url: movie_reserved_seats_path(1), method: :post do |f|
+= form_for [@movie, @reserved_seat] do |f|
     .container
         table.table
             tr
@@ -18,7 +18,7 @@ p Find me in app/views/reserved_seats/new.html.slim
                             /座席が予約されていたら「＠」を表示させる
                             - @buried_seat = @buried_seats.find_by(seat_number: "#{i} #{j}")
                             - if @buried_seat.nil?
-                                = check_box_tag "reserved_seat[seat_number]", [i,j]
+                                = check_box_tag "reserved_seat[seat_number][]", [i,j]
                             - else
                                 .buried_seat @
         .submit = f.submit
