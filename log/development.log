@@ -213,3 +213,757 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 
+  [1m[36m (268.3ms)[0m  [1mDROP DATABASE IF EXISTS "SeatSelection_development"[0m
+  [1m[35m (270.1ms)[0m  DROP DATABASE IF EXISTS "SeatSelection_test"
+  [1m[36m (838.8ms)[0m  [1mCREATE DATABASE "SeatSelection_development" ENCODING = 'unicode'[0m
+  [1m[35m (726.3ms)[0m  CREATE DATABASE "SeatSelection_test" ENCODING = 'unicode'
+  [1m[36mSQL (1.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (18.8ms)[0m  CREATE TABLE "movies" ("id" serial primary key, "title" character varying NOT NULL, "start_date" date, "end_date" date, "start_time_array" time[], "screen_time" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (2.7ms)[0m  [1mCREATE  INDEX  "index_movies_on_start_date" ON "movies" USING btree ("start_date")[0m
+  [1m[35m (2.8ms)[0m  CREATE  INDEX  "index_movies_on_start_time_array" ON "movies" USING btree ("start_time_array")
+  [1m[36m (3.2ms)[0m  [1mCREATE  INDEX  "index_movies_on_title" ON "movies" USING btree ("title")[0m
+  [1m[35m (11.4ms)[0m  CREATE TABLE "reserved_seats" ("id" serial primary key, "seat_number" character varying NOT NULL, "movie_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE "ticket_types" ("id" serial primary key, "category" character varying NOT NULL, "price" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (8.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying NOT NULL, "sex" character varying, "age" character varying(3)) 
+  [1m[36m (2.8ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (1.9ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")
+  [1m[36m (2.8ms)[0m  [1mALTER TABLE "reserved_seats" ADD CONSTRAINT "fk_rails_60022b0f01"
+FOREIGN KEY ("movie_id")
+  REFERENCES "movies" ("id")
+[0m
+  [1m[35m (1.4ms)[0m  ALTER TABLE "reserved_seats" ADD CONSTRAINT "fk_rails_44096b1cfb"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (5.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.8ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104154043')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20181101153733')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104063745')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20181104080338')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104143746')
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (12.8ms)[0m  CREATE TABLE "movies" ("id" serial primary key, "title" character varying NOT NULL, "start_date" date, "end_date" date, "start_time_array" time[], "screen_time" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (3.7ms)[0m  [1mCREATE  INDEX  "index_movies_on_start_date" ON "movies" USING btree ("start_date")[0m
+  [1m[35m (2.3ms)[0m  CREATE  INDEX  "index_movies_on_start_time_array" ON "movies" USING btree ("start_time_array")
+  [1m[36m (3.5ms)[0m  [1mCREATE  INDEX  "index_movies_on_title" ON "movies" USING btree ("title")[0m
+  [1m[35m (8.6ms)[0m  CREATE TABLE "reserved_seats" ("id" serial primary key, "seat_number" character varying NOT NULL, "movie_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (6.7ms)[0m  [1mCREATE TABLE "ticket_types" ("id" serial primary key, "category" character varying NOT NULL, "price" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (11.1ms)[0m  CREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "name" character varying NOT NULL, "sex" character varying, "age" character varying(3)) 
+  [1m[36m (2.8ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (2.8ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")
+  [1m[36m (2.9ms)[0m  [1mALTER TABLE "reserved_seats" ADD CONSTRAINT "fk_rails_60022b0f01"
+FOREIGN KEY ("movie_id")
+  REFERENCES "movies" ("id")
+[0m
+  [1m[35m (1.6ms)[0m  ALTER TABLE "reserved_seats" ADD CONSTRAINT "fk_rails_44096b1cfb"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+
+  [1m[36m (6.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.7ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104154043')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20181101153733')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104063745')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20181104080338')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20181104143746')
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-13 01:31:03 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+:
+
+
+
+Started POST "/__better_errors/83c5bd98a412cad0/variables" for 127.0.0.1 at 2018-11-13 01:31:03 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateAdminUsers (20181112162934)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (8.1ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (2.1ms)[0m  CREATE UNIQUE INDEX  "index_admin_users_on_email" ON "admin_users"  ("email")
+  [1m[36m (2.1ms)[0m  [1mCREATE UNIQUE INDEX  "index_admin_users_on_reset_password_token" ON "admin_users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20181112162934"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateActiveAdminComments (20181112162944)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (10.2ms)[0m  [1mCREATE TABLE "active_admin_comments" ("id" serial primary key, "namespace" character varying, "body" text, "resource_id" integer, "resource_type" character varying, "author_id" integer, "author_type" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (3.2ms)[0m  CREATE  INDEX  "index_active_admin_comments_on_namespace" ON "active_admin_comments"  ("namespace")
+  [1m[36m (3.4ms)[0m  [1mCREATE  INDEX  "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments"  ("author_type", "author_id")[0m
+  [1m[35m (2.9ms)[0m  CREATE  INDEX  "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments"  ("resource_type", "resource_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20181112162944"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'active_admin_comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'admin_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'movies'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'reserved_seats'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'ticket_types'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "一般"], ["price", 1800], ["created_at", "2018-11-12 16:31:48.586589"], ["updated_at", "2018-11-12 16:31:48.586589"]]
+  [1m[35m (2.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "大学生"], ["price", 1500], ["created_at", "2018-11-12 16:31:48.593341"], ["updated_at", "2018-11-12 16:31:48.593341"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "中・高校生"], ["price", 1000], ["created_at", "2018-11-12 16:31:48.595214"], ["updated_at", "2018-11-12 16:31:48.595214"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["category", "シニア割引"], ["price", 1100], ["created_at", "2018-11-12 16:31:48.596871"], ["updated_at", "2018-11-12 16:31:48.596871"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "ticket_types" ("category", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "障碍者割引"], ["price", 1000], ["created_at", "2018-11-12 16:31:48.598418"], ["updated_at", "2018-11-12 16:31:48.598418"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mAdminUser Exists (1.1ms)[0m  SELECT  1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'admin@example.com' LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "admin_users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "admin@example.com"], ["encrypted_password", "$2a$11$DgMQrRBuehMuF4bghR6YFuaraeXILHeVJGXlgZ2Q1o3k.pjytHTj."], ["created_at", "2018-11-12 16:31:48.768154"], ["updated_at", "2018-11-12 16:31:48.768154"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-13 01:32:05 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 22ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-11-13 01:32:05 +0900
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/devise/shared/_links.erb (1.5ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (108.9ms)
+Completed 200 OK in 1100ms (Views: 1087.5ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2018-11-13 01:32:22 +0900
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tXVzBC5TIfL8xLd+V28GcFZuNqFecunvNRO+nk7LgpCJ8vmQKdrBK6XCXfGWGDCfE+M7sunyOqv/ppiW4wy/gQ==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[35mAdminUser Load (1.2ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 236ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-13 01:32:22 +0900
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.2ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (149.4ms)
+Completed 200 OK in 162ms (Views: 157.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-11-13 01:33:01 +0900
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "admin_users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mAdminUser Load (0.6ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (191.3ms)
+Completed 500 Internal Server Error in 218ms (ActiveRecord: 2.2ms)
+
+I18n::MissingTranslationData - translation missing: ja.time.formats.long:
+  app/admin/admin_users.rb:10:in `block (2 levels) in <top (required)>'
+
+
+
+Started POST "/__better_errors/25f1d308144a441d/variables" for 127.0.0.1 at 2018-11-13 01:33:02 +0900
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc
+
+
+Started GET "/admin/comments" for 127.0.0.1 at 2018-11-13 01:33:05 +0900
+Processing by Admin::CommentsController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.1ms)[0m  SELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1  [["namespace", "admin"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1 LIMIT 30 OFFSET 0) subquery_for_count[0m  [["namespace", "admin"]]
+  [1m[35m (0.5ms)[0m  SELECT DISTINCT "active_admin_comments"."resource_type" FROM "active_admin_comments"  ORDER BY resource_type asc
+  [1m[36m (0.6ms)[0m  [1mSELECT DISTINCT "active_admin_comments"."author_type" FROM "active_admin_comments"  ORDER BY author_type asc[0m
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (181.7ms)
+Completed 200 OK in 203ms (Views: 197.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-11-13 01:33:11 +0900
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "admin_users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (167.5ms)
+Completed 500 Internal Server Error in 184ms (ActiveRecord: 1.8ms)
+
+I18n::MissingTranslationData - translation missing: ja.time.formats.long:
+  app/admin/admin_users.rb:10:in `block (2 levels) in <top (required)>'
+
+
+
+Started POST "/__better_errors/802e9f9243c1691c/variables" for 127.0.0.1 at 2018-11-13 01:33:11 +0900
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-13 01:39:36 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (5.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 1139ms (Views: 1121.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/amdin" for 127.0.0.1 at 2018-11-13 01:39:41 +0900
+
+ActionController::RoutingError (No route matches [GET] "/amdin"):
+  actionpack (4.2.10) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.10) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.10) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.10) lib/rails/rack/logger.rb:20:in `call'
+  request_store (1.4.1) lib/request_store/middleware.rb:19:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.11) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.11) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.10) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.11) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.10) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.11) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.10) lib/rails/engine.rb:518:in `call'
+  railties (4.2.10) lib/rails/application.rb:165:in `call'
+  rack (1.6.11) lib/rack/lock.rb:17:in `call'
+  rack (1.6.11) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.11) lib/rack/handler/webrick.rb:88:in `service'
+  /root/.rbenv/versions/2.5.0/lib/ruby/2.5.0/webrick/httpserver.rb:140:in `service'
+  /root/.rbenv/versions/2.5.0/lib/ruby/2.5.0/webrick/httpserver.rb:96:in `run'
+  /root/.rbenv/versions/2.5.0/lib/ruby/2.5.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/routes/_table.html.erb (18.7ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (140.2ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (92.9ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (206.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-13 01:39:48 +0900
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (167.3ms)
+Completed 200 OK in 208ms (Views: 176.0ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/admin/logout" for 127.0.0.1 at 2018-11-13 01:39:51 +0900
+Processing by ActiveAdmin::Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+pDDljjteV1yOIVpJo84dqZ7uZ2yOOJaEC9rvaKsXOjJgNqJm0eoOqi42H33Q+6uNliUFJC3ZWoMptujsRpObA=="}
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 9ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-13 01:39:51 +0900
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-11-13 01:39:51 +0900
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/devise/shared/_links.erb (1.0ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (114.6ms)
+Completed 200 OK in 327ms (Views: 323.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2018-11-13 01:40:10 +0900
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QimBj6Iih8uY+aHnfjY9PxZEP82+nk6Jp5/u3NthCYSVveyFOShlvtee5/sUht8Xz6f/iDeB9iW5PUaLD9SOVQ==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 216ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-13 01:40:11 +0900
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (161.1ms)
+Completed 200 OK in 169ms (Views: 167.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-15 00:23:41 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (5.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 28ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-11-15 00:23:42 +0900
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/devise/shared/_links.erb (1.5ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (140.6ms)
+Completed 200 OK in 1292ms (Views: 1268.1ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/assets/jquery3.self-5af507e253c37e9c9dcf65064fc3f93795e6e28012780579975a4d709f4074ad.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/version.self-c8e3d1203da26ea7efdf83c1eabb3f0ba55cb68e463f5ccf0d77bd15ce6a8e61.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/active_admin.self-4b240f87c72d4e2388c805768bc8faa9d618351c36c02311fc6ecfca8b218e20.css?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/keycode.self-ad63cd20acf49dd333bbbc537454d7d475bd610eb5b88de0dca009f0c3d314b1.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/widgets/datepicker.self-2af0dec09da99d687c31fc224e940687a4eb3694e7b38b0871bba475cad86120.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/widget.self-fca20bcec06d192f97cffa6e734e24360e227237b8ae7d7e7e60754df7d5444f.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/widgets/controlgroup.self-0b7409f97114a33de116bd5429e9df199cbdea3f276d8bd725c4c2c60f244711.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/ie.self-163eb039dcb1e0c3471b7d91386eabb8753da6906e84824c019f9ff56bdb83a6.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/widgets/button.self-659b51f6fb5303f90ed8cf551509063770a50168a15795ba834b08f8bf2e0ce0.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/widgets/checkboxradio.self-0b7409f97114a33de116bd5429e9df199cbdea3f276d8bd725c4c2c60f244711.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/plugin.self-d8f576c8e073ca51f095505f47bd09d306b875404cd90afcbb6338287cfb0247.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/data.self-2067c82e6fe39a9cba5623206a5dc28d5c60d26b95cd100855b78cacf72865b8.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/widgets/mouse.self-f0790a202dcf54fab051e71b042335d5346f9cceb0f645223c1dab93f349a04b.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/widgets/resizable.self-1a46c2f5b876918e02bf979080e56f57846590cd880721bca5058e84f7f60bae.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/widgets/draggable.self-42c3eda0b49f105628cea7580fe38c7ed77467cee384bb2c4e095a2bd0a172e6.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/scroll-parent.self-38e26a71a450a29fb63425e8f589a7046862f927eb0a1dbf6a6c44da05196d2e.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/safe-blur.self-2cc24c46132d51c7724f6371154241b0a81c9bae5d5681d8f62b01ce46236726.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/disable-selection.self-5675f71f2fbbc6857ea700ba843af748b50dbc0150cc87932a7d05ec016bb659.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/safe-active-element.self-a1f1a1a7dae3269ce03f6fffb2dcc9b4a7490f5d546c65d54417bec3be24b668.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/focusable.self-426e99e67d1f1bd4cb444fd878ee63a6de1f5d1d61451e43022c86214b9eec64.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/position.self-1b49c8c521e67a4a88bfdad6b4d944d33686d25009a0e40a1e170acdd7b6962a.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/tabbable.self-f3f62ceed772d3a325cebd6a03221f8a8cb02c6150f4feba738c6525a2953690.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/unique-id.self-66e85ac85cd0b6b8b1bb89369fc65f608f716869dc0930862a8d421a57a9580a.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/widgets/dialog.self-2bd687f9580c0be4213c50b4bb1211c28ceedb045eba954e63d40bfbb4d1affd.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/widgets/sortable.self-6e5e1f07a29b5a89ec1d359363d2800904e3ae548a38ab2f8eded36746d1adbe.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/escape-selector.self-43e4d61501e4ffb1ecba387affbae1eb3e1c863ab0b0e71897851cddd246e50e.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery-ui/widgets/tabs.self-b7f60535e992224ca66c3f11dc943eba9ef42a9605241e27b9dba24c7efb287e.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/active_admin/base.self-ab2cb3098b53fe7d229937d768d701e8f4013f2a5aea7988d8f2149fa40426db.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/active_admin/lib/batch_actions.self-38f91c8a2e79d0d334f22e68440137ecad0a081f21e35bf9532de1e409f78e8a.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:43 +0900
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.self-f3ac78175da0b7357ada35c7b7db4cd119ac305ab118a7effb24b1c5da629e07.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.self-5794b6ca26364ce522cb47a8ef050870fda0b886cfeef69ec27ef116900f1984.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/lib/flash.self-8f05a5d9328ea28fca100b057787fbfb567986513c5f1735ea48fad8f9571c10.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/lib/has_many.self-ece319debdc01ca5096ae8ac6c130ffc0decab382543b4b94e18591375d3d3bb.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.self-5dfc6e87bae26cd4a021eb86951d3691ed07e6d2bf242a8eb65dc6965e12096c.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/lib/per_page.self-ac2a7829e00b21d672b908a9a64b42aef7632ff1dac9a90dda0e779706c71256.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.self-411adb7e5ac7ce5602bfedc685bb1253aa41b0f687599f11312f15805f9856f0.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.self-f96f2ec2a32c4bc4da4292cc74bddeca0bb223d81a421c98c4d613632860945e.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/ext/jquery.self-da8dafbbe883092bcae73f35a8caf4ae6170fe7d8130ae7039a233f9b509c757.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/initializers/batch_actions.self-f693d7e31a910829186af20c64f91da55574e3385b12465c151da4d63f7d9883.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/initializers/datepicker.self-305bbf9fc8b1de2fd07ea201cef994db1e32c3cc29b711f9f5fa13ea70681444.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/initializers/filters.self-a0ee45912355fd1c2122b7c9f94e2fcda6b78cd20723f85cd26d10016b060128.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/initializers/tabs.self-5bccad3e0e615bd96bf323490a71829beec067511af628e9808993bb6beeb3a5.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started GET "/assets/active_admin/print.self-da29d33f1290a5dc7e957847b31eb64fa82645440493df7d56e310c9a8d3388c.css?body=1" for 127.0.0.1 at 2018-11-15 00:23:44 +0900
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2018-11-15 00:44:02 +0900
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qTdFpclFe5pFFNpj+xn1C+NbQ56UkvUVg0Ccj9RTFU6hkZbMP2g1R/dwGM/wKgO5wc/LCzhAZK90Apq+dwx7ig==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[35mAdminUser Load (6.2ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 257ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-15 00:44:03 +0900
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (165.9ms)
+Completed 200 OK in 182ms (Views: 174.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-16 00:08:21 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (3.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+Completed 200 OK in 1355ms (Views: 1335.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/page.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2018-11-16 00:08:22 +0900
+
+
+Started GET "/assets/pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2018-11-16 00:08:22 +0900
+
+
+Started GET "/assets/reset.self-34b119c804e6deac121cb23d9ed01ddbb758d94a4ded3f999cff5e619a40ad25.css?body=1" for 127.0.0.1 at 2018-11-16 00:08:22 +0900
+
+
+Started GET "/assets/application.self-3c94d257434ba2fcb4a7b584f13003fc0b2f4fae3c2ac9eae6bb88c35c45025c.css?body=1" for 127.0.0.1 at 2018-11-16 00:08:22 +0900
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:22 +0900
+
+
+Started GET "/assets/turbolinks.self-569ee74eaa15c1e2019317ff770b8769b1ec033a0f572a485f64c82ddc8f989e.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/jquery-ui/version.self-c8e3d1203da26ea7efdf83c1eabb3f0ba55cb68e463f5ccf0d77bd15ce6a8e61.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/jquery-ui/keycode.self-ad63cd20acf49dd333bbbc537454d7d475bd610eb5b88de0dca009f0c3d314b1.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/jquery-ui/ie.self-163eb039dcb1e0c3471b7d91386eabb8753da6906e84824c019f9ff56bdb83a6.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/jquery-ui/data.self-2067c82e6fe39a9cba5623206a5dc28d5c60d26b95cd100855b78cacf72865b8.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/jquery-ui/escape-selector.self-43e4d61501e4ffb1ecba387affbae1eb3e1c863ab0b0e71897851cddd246e50e.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/jquery-ui/plugin.self-d8f576c8e073ca51f095505f47bd09d306b875404cd90afcbb6338287cfb0247.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/jquery-ui/safe-blur.self-2cc24c46132d51c7724f6371154241b0a81c9bae5d5681d8f62b01ce46236726.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/active_admin/ext/jquery.self-da8dafbbe883092bcae73f35a8caf4ae6170fe7d8130ae7039a233f9b509c757.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/jquery-ui/unique-id.self-66e85ac85cd0b6b8b1bb89369fc65f608f716869dc0930862a8d421a57a9580a.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/jquery-ui/safe-active-element.self-a1f1a1a7dae3269ce03f6fffb2dcc9b4a7490f5d546c65d54417bec3be24b668.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/active_admin/initializers/tabs.self-5bccad3e0e615bd96bf323490a71829beec067511af628e9808993bb6beeb3a5.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.self-f96f2ec2a32c4bc4da4292cc74bddeca0bb223d81a421c98c4d613632860945e.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/page.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/active_admin/initializers/batch_actions.self-f693d7e31a910829186af20c64f91da55574e3385b12465c151da4d63f7d9883.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/active_admin/initializers/datepicker.self-305bbf9fc8b1de2fd07ea201cef994db1e32c3cc29b711f9f5fa13ea70681444.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap/util.self-32c933709f03802cab6990dadb15257dcca78c60790311303e1f69319bb5ec09.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap/scrollspy.self-9c4010d9389b7b27e3247fcbb0cc4425f15d7df2d0d3464b9c3a9022632f1dc8.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/jquery-ui/tabbable.self-f3f62ceed772d3a325cebd6a03221f8a8cb02c6150f4feba738c6525a2953690.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/popper.self-23d0e4674571ef619dc97acba7169155cec531ebea3136429568f24ab0755da7.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/active_admin/base.self-ab2cb3098b53fe7d229937d768d701e8f4013f2a5aea7988d8f2149fa40426db.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap/dropdown.self-7abc7d81497e5228d193f1151e74cd9f683732d7ab3e9654f714a4d75fbd41c0.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap/collapse.self-f40766e711b829f346a1d3f6ca132348a77eef7cdfd28732ba8afcf2c996dc89.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap/alert.self-6174a81cd2fbcf8bc9949957661638e9716cb0390e0fcf29fafcdc0f2351c58f.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap/carousel.self-684b442295b055f9cdba73cb596ffdb733024661042cfaee5637c28350efdd28.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap/popover.self-3d5b251608f27dbdae33a816e4736ae6e8a8e1729af1fc0c10eb234bf0f494c5.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/active_admin.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap/button.self-5e0c9bfb00dc1db87237215c889765533d8b0744d96538915cff2ac0e29a3825.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap/modal.self-711cfe854709180e4c826346dd982c6df3eabc0eab949d2a1560201a139dccfa.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap/tooltip.self-b2c5fc72d4e22d1516e9713d3ee1ffa6f92ed11722175e2a9b88c3acbe0bbc09.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap/tab.self-f8f47356299f63d5a6828b6954f5e92bf82d85370f16410b5ae89d3e1effdd96.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/bootstrap-sprockets.self-636159b35205da4142a43bc02d2849d77d3ac07a0946211585cde15a9c6ff21f.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/assets/application.self-7862a8a8b42407b4741a1adeeea35f0d13ddc4f702ec532adb0674491d296495.js?body=1" for 127.0.0.1 at 2018-11-16 00:08:23 +0900
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-16 00:08:31 +0900
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-11-16 00:08:31 +0900
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/devise/shared/_links.erb (1.0ms)
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (110.5ms)
+Completed 200 OK in 359ms (Views: 338.9ms | ActiveRecord: 12.5ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2018-11-16 00:08:33 +0900
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H2+SlEWQ+na4y0f4ksHDwmfFFOTRWLG+R3CJK41a1Ss39tnM1GmbRWGf1ZN6QovWdQnwuJugxcsf60M2Zw/r1A==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"ログイン"}
+  [1m[35mAdminUser Load (4.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["email", "admin@example.com"]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 263ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-16 00:08:34 +0900
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (195.7ms)
+Completed 200 OK in 211ms (Views: 204.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-11-16 00:08:35 +0900
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "admin_users"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (186.1ms)
+Completed 500 Internal Server Error in 215ms (ActiveRecord: 1.8ms)
+
+I18n::MissingTranslationData - translation missing: ja.time.formats.long:
+  app/admin/admin_users.rb:10:in `block (2 levels) in <top (required)>'
+
+
+
+Started POST "/__better_errors/a86ea6ebd20c9c6d/variables" for 127.0.0.1 at 2018-11-16 00:08:35 +0900
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-11-16 00:13:34 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (971.8ms)
+Completed 200 OK in 1068ms (Views: 1014.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-11-16 00:13:37 +0900
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "admin_users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (256.9ms)
+Completed 200 OK in 288ms (Views: 275.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-11-16 00:13:37 +0900
+
+
+Started GET "/admin/comments" for 127.0.0.1 at 2018-11-16 00:13:39 +0900
+Processing by Admin::CommentsController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (3.7ms)[0m  SELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1  [["namespace", "admin"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "active_admin_comments" WHERE "active_admin_comments"."namespace" = $1 LIMIT 30 OFFSET 0) subquery_for_count[0m  [["namespace", "admin"]]
+  [1m[35m (0.8ms)[0m  SELECT DISTINCT "active_admin_comments"."resource_type" FROM "active_admin_comments"  ORDER BY resource_type asc
+  [1m[36m (0.4ms)[0m  [1mSELECT DISTINCT "active_admin_comments"."author_type" FROM "active_admin_comments"  ORDER BY author_type asc[0m
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (210.6ms)
+Completed 200 OK in 234ms (Views: 223.9ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-11-16 00:13:41 +0900
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (155.6ms)
+Completed 200 OK in 163ms (Views: 161.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-11-16 00:13:43 +0900
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "admin_users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/resource/index.html.arb (231.0ms)
+Completed 200 OK in 249ms (Views: 245.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-11-16 00:13:45 +0900
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /root/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/activeadmin-1.3.1/app/views/active_admin/page/index.html.arb (166.6ms)
+Completed 200 OK in 174ms (Views: 172.0ms | ActiveRecord: 0.5ms)
