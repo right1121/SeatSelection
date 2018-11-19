@@ -6,6 +6,7 @@ class ReservedSeatsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @reserved_seat = ReservedSeat.new
     @buried_seats = ReservedSeat.where(movie_id: params[:movie_id]) #指定された映画の座席予約情報を呼び出す
+    @buried_seats_array = seats(@buried_seats) #複数の予約座席情報の配列を一つの配列にする
   end
 
   def create
@@ -27,5 +28,16 @@ class ReservedSeatsController < ApplicationController
       :user_id,
       seat_number_array: [],
     )
+  end
+
+  #複数の予約座席情報の配列を一つの配列にする
+  def seats(buried_seats)
+    buried_seats_array = []
+    buried_seats.each do |buried_seat|
+      buried_seat.seat_number_array.each do |seat|
+        buried_seats_array << seat
+      end
+    end
+    buried_seats_array
   end
 end
