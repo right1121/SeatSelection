@@ -40,4 +40,6 @@ class ReservedSeatsController < ApplicationController
     end
     buried_seats_array
   end
+
+  
 end

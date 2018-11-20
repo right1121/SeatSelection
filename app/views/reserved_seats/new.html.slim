@@ -16,9 +16,8 @@ p Find me in app/views/reserved_seats/new.html.slim
                     - else
                         td id="#{i}-#{j}" name="#{i}-#{j}" 
                             /座席が予約されていたら「＠」を表示させる
-                            /- @buried_seat = @buried_seats.find_seat_number_array
-                            /- if @buried_seat.nil?
-                            = check_box_tag "reserved_seat[seat_number_array][]", [i,j]
-                            /- else
+                            - if check_reserved_seat(@buried_seats_array, i, j) #渡した配列の中に座席情報があったらtrue
                                 .buried_seat @
+                            - else
+                                = check_box_tag "reserved_seat[seat_number_array][]", [i,j]
         .submit = f.submit
