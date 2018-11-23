@@ -10505,3 +10505,228 @@ Processing by ReservedSeatsController#new as HTML
   Rendered reserved_seats/new.html.slim within layouts/application (303.6ms)
   Rendered layouts/_header.html.erb (0.3ms)
 Completed 200 OK in 1288ms (Views: 1158.9ms | ActiveRecord: 50.1ms)
+  [1m[36mMovie Load (45.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReservedSeat Load (44.2ms)[0m  SELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1  [["movie_id", 1]]
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-23 15:42:10 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (27.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mMovie Load (1.3ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 82ms (ActiveRecord: 7.8ms)
+
+NoMethodError - undefined method `reserved_seat' for #<Movie:0x00007fe67c3ce398>
+Did you mean?  reserved_seats
+               reserved_seats=
+               reserved_seat_ids:
+  app/controllers/reserved_seats_controller.rb:7:in `new'
+
+
+
+Started POST "/__better_errors/46a381296b9ec745/variables" for ::1 at 2018-11-23 15:42:11 +0900
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-23 15:42:27 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 7.2ms)
+
+NoMethodError - undefined method `seat' for #<ReservedSeat:0x00007fe67baf5780>
+Did you mean?  seats:
+  app/controllers/reserved_seats_controller.rb:9:in `new'
+
+
+
+Started POST "/__better_errors/4391c0871a05af12/variables" for ::1 at 2018-11-23 15:42:28 +0900
+  [1m[35mReservedSeat Load (1.4ms)[0m  SELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1  [["movie_id", 1]]
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-23 15:42:40 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mMovie Load (0.7ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReservedSeat Load (0.4ms)[0m  SELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1  [["movie_id", 1]]
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 6.4ms)
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/models/reserved_seat.rb:9:in `block in seats'
+  app/models/reserved_seat.rb:8:in `seats'
+  app/controllers/reserved_seats_controller.rb:9:in `new'
+
+
+
+Started POST "/__better_errors/75b36ac4a5a2ea29/variables" for ::1 at 2018-11-23 15:42:40 +0900
+
+
+Started POST "/__better_errors/75b36ac4a5a2ea29/eval" for ::1 at 2018-11-23 15:44:25 +0900
+
+
+Started POST "/__better_errors/75b36ac4a5a2ea29/eval" for ::1 at 2018-11-23 15:44:34 +0900
+
+
+Started POST "/__better_errors/75b36ac4a5a2ea29/eval" for ::1 at 2018-11-23 15:44:45 +0900
+
+
+Started POST "/__better_errors/75b36ac4a5a2ea29/eval" for ::1 at 2018-11-23 15:45:08 +0900
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-23 15:46:56 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mMovie Load (1.5ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReservedSeat Load (0.5ms)[0m  SELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1  [["movie_id", 1]]
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 2.0ms)
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/models/reserved_seat.rb:9:in `block in seats'
+  app/models/reserved_seat.rb:8:in `seats'
+  app/controllers/reserved_seats_controller.rb:9:in `new'
+
+
+
+Started POST "/__better_errors/36172cd18b11b0bf/variables" for ::1 at 2018-11-23 15:46:57 +0900
+
+
+Started POST "/__better_errors/36172cd18b11b0bf/eval" for ::1 at 2018-11-23 15:47:03 +0900
+
+
+Started POST "/__better_errors/36172cd18b11b0bf/eval" for ::1 at 2018-11-23 15:47:36 +0900
+
+
+Started POST "/__better_errors/36172cd18b11b0bf/eval" for ::1 at 2018-11-23 15:47:40 +0900
+
+
+Started POST "/__better_errors/36172cd18b11b0bf/eval" for ::1 at 2018-11-23 15:47:55 +0900
+
+
+Started POST "/__better_errors/36172cd18b11b0bf/eval" for ::1 at 2018-11-23 15:48:08 +0900
+
+
+Started POST "/__better_errors/36172cd18b11b0bf/eval" for ::1 at 2018-11-23 15:48:30 +0900
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-23 15:50:18 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 500 Internal Server Error in 1006ms (ActiveRecord: 958.9ms)
+
+SyntaxError - syntax error, unexpected end-of-input, expecting keyword_end:
+  app/models/reserved_seat.rb:15:in `'
+  app/controllers/reserved_seats_controller.rb:7:in `new'
+
+
+
+Started POST "/__better_errors/32f302e0261898e8/variables" for ::1 at 2018-11-23 15:50:20 +0900
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-23 15:51:08 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mMovie Load (42.2ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (0.5ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+Completed 500 Internal Server Error in 139ms (ActiveRecord: 80.8ms)
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/models/reserved_seat.rb:9:in `block in seats'
+  app/models/reserved_seat.rb:8:in `seats'
+  app/controllers/reserved_seats_controller.rb:9:in `new'
+
+
+
+Started POST "/__better_errors/e46a1b53b22176f4/variables" for ::1 at 2018-11-23 15:51:08 +0900
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-23 15:52:15 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+Completed 500 Internal Server Error in 245ms (ActiveRecord: 217.4ms)
+
+NoMethodError - undefined method `each' for nil:NilClass:
+  app/models/reserved_seat.rb:10:in `block in seats'
+  app/models/reserved_seat.rb:8:in `seats'
+  app/controllers/reserved_seats_controller.rb:9:in `new'
+
+
+
+Started POST "/__better_errors/cfc79200b3d328c7/variables" for ::1 at 2018-11-23 15:52:16 +0900
+
+
+Started POST "/__better_errors/cfc79200b3d328c7/eval" for ::1 at 2018-11-23 15:52:26 +0900
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-23 15:52:47 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mMovie Load (0.5ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+  Rendered reserved_seats/new.html.slim within layouts/application (396.4ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 1623ms (Views: 1580.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-23 15:53:02 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mMovie Load (2.1ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 2.1ms)
+
+NoMethodError - private method `seats' called for #<ReservedSeat:0x00007fe67d357468>:
+  app/controllers/reserved_seats_controller.rb:9:in `new'
+
+
+
+Started POST "/__better_errors/5406441e748ecc30/variables" for ::1 at 2018-11-23 15:53:02 +0900
+  [1m[36mReservedSeat Load (4.6ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-23 15:53:18 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mMovie Load (0.4ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (0.3ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+  Rendered reserved_seats/new.html.slim within layouts/application (15.1ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 182ms (Views: 137.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/movies/1/reserved_seats" for ::1 at 2018-11-23 15:53:32 +0900
+Processing by ReservedSeatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Y2AKv+ghllsiJT0D4syRNDIHEaepGog8rsm+1uLgMSZgETTuTAdWU+2NkXLYHtsCAFpxrma0J8Opp6r4Ht2VzA==", "reserved_seat"=>{"seat_number_array"=>["C 1", "C 2", "C 3", "C 4", "C 5"]}, "commit"=>"Create Reserved seat", "movie_id"=>"1"}
+  [1m[35mUser Load (9.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (41.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (60.7ms)[0m  INSERT INTO "reserved_seats" ("seat_number_array", "user_id", "movie_id", "seat_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["seat_number_array", "{\"C 1\",\"C 2\",\"C 3\",\"C 4\",\"C 5\"}"], ["user_id", 1], ["movie_id", 1], ["seat_number", "1"], ["created_at", "2018-11-23 06:53:32.435228"], ["updated_at", "2018-11-23 06:53:32.435228"]]
+  [1m[36m (44.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 330ms (ActiveRecord: 262.7ms)
+
+
+Started GET "/movies" for ::1 at 2018-11-23 15:53:32 +0900
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.slim within layouts/application (4.3ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+Completed 200 OK in 131ms (Views: 129.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/1" for ::1 at 2018-11-23 15:53:34 +0900
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.slim within layouts/application (6.8ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+Completed 200 OK in 170ms (Views: 167.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-23 15:53:37 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (0.8ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+  Rendered reserved_seats/new.html.slim within layouts/application (11.2ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+Completed 200 OK in 102ms (Views: 96.0ms | ActiveRecord: 1.2ms)
