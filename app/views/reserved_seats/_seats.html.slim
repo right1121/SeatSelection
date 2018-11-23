@@ -1,9 +1,4 @@
-= form_for [movie, @reserved_seat] do |f|
-    -#エラーメッセージ
-    - if @reserved_seat.errors.any?
-        .alert.alert-danger
-            - @reserved_seat.errors.full_messages.each do |msg|
-                = msg
+= form_for [@movie, @reserved_seat] do |f|
 
     = f.hidden_field :movie_id
 
