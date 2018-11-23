@@ -10,7 +10,7 @@ class ReservedSeatsController < ApplicationController
   end
 
   def create
-    @user = User.find(1) #仮実装。current_userにする
+    @user = User.find(2) #仮実装。current_userにする
     @reserved_seat = @user.reserved_seats.new(reserved_seat_params)
     @reserved_seat.movie_id = params[:movie_id]
     @reserved_seat.seat_number = 1 #あとで削除する
