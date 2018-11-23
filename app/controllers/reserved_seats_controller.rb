@@ -3,8 +3,9 @@ class ReservedSeatsController < ApplicationController
   end
   
   def new
+    @user = User.find(2) #仮実装。current_userにする
     @movie = Movie.find(params[:movie_id])
-    @reserved_seat = @movie.reserved_seats.new
+    @reserved_seat = @movie.reserved_seats.new(user_id: @user.id)
     @buried_seats = @movie.reserved_seats #映画の座席予約情報を呼び出す
     @buried_seats_array = @reserved_seat.seats(@buried_seats) #複数の予約座席情報の配列を一つの配列にする
   end
@@ -12,12 +13,12 @@ class ReservedSeatsController < ApplicationController
   def create
     @user = User.find(2) #仮実装。current_userにする
     @reserved_seat = @user.reserved_seats.new(reserved_seat_params)
-    @reserved_seat.movie_id = params[:movie_id]
     @reserved_seat.seat_number = 1 #あとで削除する
     if @reserved_seat.save
       redirect_to movies_path
     else
-      render :new
+      movie = Movie.find(params[:movie_id])
+      redirect_to new_movie_reserved_seat_path(movie.id), alert: "座席を選択してください"
     end
   end
 

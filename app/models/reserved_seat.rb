@@ -2,6 +2,8 @@ class ReservedSeat < ActiveRecord::Base
   belongs_to :user
   belongs_to :movie
 
+  validates :seat_number_array, presence: true
+
   #複数の予約座席情報の配列を一つの配列にする
   def seats(buried_seats)
     buried_seats_array = []
