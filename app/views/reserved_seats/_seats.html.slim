@@ -1,0 +1,28 @@
+= form_for [movie, @reserved_seat] do |f|
+    -#エラーメッセージ
+    - if @reserved_seat.errors.any?
+        .alert.alert-danger
+            - @reserved_seat.errors.full_messages.each do |msg|
+                = msg
+
+    = f.hidden_field :movie_id
+
+    .container
+        table.table
+            tr
+            - 14.times do |i| #一段目の番号
+                td
+                    = i if i != 0
+            - ('A'..'N').to_a.each do |i| #一列目のアルファベット
+                tr
+                - 14.times do |j|
+                    - if j == 0
+                        td = i
+                    - else
+                        td id="#{i}-#{j}" name="#{i}-#{j}" 
+                            /座席が予約されていたら「＠」を表示させる
+                            - if check_reserved_seat(@buried_seats_array, i, j) #渡した配列の中に座席情報があったらtrue
+                                .buried_seat @
+                            - else
+                                = check_box_tag "reserved_seat[seat_number_array][]", [i,j]
+        .submit = f.submit
