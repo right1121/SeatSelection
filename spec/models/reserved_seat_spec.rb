@@ -2,4 +2,6 @@ require 'rails_helper'
 
 RSpec.describe ReservedSeat, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
+
+  example '座席を指定していないとエラーになる'
 end
