@@ -11,3 +11,4 @@ Movie.create(title: 'ドラえもん', start_date: '2018-11-23', end_date: '2019
 
 User.create(email: 'a@a.a', password: '123456', name: 'ドク', sex: '男', age: '65')
 User.create(email: 'b@b.b', password: '123456', name: 'マーティ', sex: '男', age: '17')
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

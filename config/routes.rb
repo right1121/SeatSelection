@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'reserved_seats/index'
-
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users, module: :users
   root 'pages#index'
 
