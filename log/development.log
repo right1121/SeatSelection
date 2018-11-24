@@ -13437,3 +13437,284 @@ Processing by ReservedSeatsController#create as HTML
   Rendered layouts/_header.html.erb (0.1ms)
   Rendered layouts/_flash.html.slim (0.2ms)
 Completed 200 OK in 1437ms (Views: 567.6ms | ActiveRecord: 427.2ms)
+
+
+Started GET "/movies/1/reserved_seats" for ::1 at 2018-11-24 17:02:06 +0900
+Processing by ReservedSeatsController#index as HTML
+  Parameters: {"movie_id"=>"1"}
+  Rendered reserved_seats/index.html.slim within layouts/application (0.1ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 389ms (Views: 386.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-24 17:02:14 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mUser Load (41.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReservedSeat Load (0.5ms)[0m  SELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1  [["movie_id", 1]]
+  Rendered reserved_seats/_seats.html.slim (105.1ms)
+  Rendered reserved_seats/new.html.slim within layouts/application (109.9ms)
+Completed 500 Internal Server Error in 184ms (ActiveRecord: 42.5ms)
+
+NoMethodError - undefined method `-' for "A":String
+Did you mean?  -@:
+  app/views/reserved_seats/_seats.html.slim:27:in `block (3 levels) in _app_views_reserved_seats__seats_html_slim___3469510370814169642_70217597282040'
+  app/views/reserved_seats/_seats.html.slim:18:in `block (2 levels) in _app_views_reserved_seats__seats_html_slim___3469510370814169642_70217597282040'
+  app/views/reserved_seats/_seats.html.slim:16:in `block in _app_views_reserved_seats__seats_html_slim___3469510370814169642_70217597282040'
+  app/views/reserved_seats/_seats.html.slim:1:in `_app_views_reserved_seats__seats_html_slim___3469510370814169642_70217597282040'
+  app/views/reserved_seats/new.html.slim:4:in `_app_views_reserved_seats_new_html_slim__3017857482140544956_70217595657580'
+
+
+
+Started POST "/__better_errors/e8aa063c01a9c8e7/variables" for ::1 at 2018-11-24 17:02:14 +0900
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-24 17:02:44 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mUser Load (40.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovie Load (0.7ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (1.1ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+  Rendered reserved_seats/_seats.html.slim (29.3ms)
+  Rendered reserved_seats/new.html.slim within layouts/application (33.5ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 279ms (Views: 229.6ms | ActiveRecord: 42.2ms)
+
+
+Started POST "/movies/1/reserved_seats" for ::1 at 2018-11-24 17:02:57 +0900
+Processing by ReservedSeatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fnkOn4iNxunMKCxb1kNENbXqv77n5J+XH7LK0sE2pfJ9CDDOLKsG4QOAgCrskQ4Dh7fftyhKMGgY3N78PQsBGA==", "reserved_seat"=>{"movie_id"=>"1", "seat_number_array"=>["B-1"]}, "commit"=>"Create Reserved seat", "movie_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (68.0ms)[0m  INSERT INTO "reserved_seats" ("movie_id", "seat_number_array", "user_id", "seat_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["movie_id", 1], ["seat_number_array", "{B-1}"], ["user_id", 2], ["seat_number", "1"], ["created_at", "2018-11-24 08:02:57.912516"], ["updated_at", "2018-11-24 08:02:57.912516"]]
+  [1m[36m (26.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 140ms (ActiveRecord: 94.7ms)
+
+
+Started GET "/movies" for ::1 at 2018-11-24 17:02:58 +0900
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.4ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.slim within layouts/application (4.9ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 145ms (Views: 143.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/1" for ::1 at 2018-11-24 17:03:00 +0900
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (4.2ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 152ms (Views: 145.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-24 17:03:02 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mUser Load (40.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mMovie Load (0.5ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReservedSeat Load (0.5ms)[0m  SELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1  [["movie_id", 1]]
+  Rendered reserved_seats/_seats.html.slim (19.8ms)
+  Rendered reserved_seats/new.html.slim within layouts/application (27.1ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 202ms (Views: 154.6ms | ActiveRecord: 41.6ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-24 17:03:42 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovie Load (0.4ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+  Rendered reserved_seats/_seats.html.slim (11.3ms)
+  Rendered reserved_seats/new.html.slim within layouts/application (14.9ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 292ms (Views: 118.9ms | ActiveRecord: 133.4ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-24 17:07:43 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mMovie Load (0.7ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1  [["movie_id", 1]]
+  Rendered reserved_seats/_seats.html.slim (37.8ms)
+  Rendered reserved_seats/new.html.slim within layouts/application (43.9ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 368ms (Views: 229.6ms | ActiveRecord: 94.5ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-24 17:08:48 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovie Load (0.5ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (0.4ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+  Rendered reserved_seats/_seats.html.slim (48.0ms)
+  Rendered reserved_seats/new.html.slim within layouts/application (52.3ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 204ms (Views: 195.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/movies/1/reserved_seats" for ::1 at 2018-11-24 17:09:44 +0900
+Processing by ReservedSeatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A0AK9GGoHVSS7jZaABE6ypmVWuLoxsnldmoFT2lQAm8AMTSlxY7dXF1Gmis6w3D8q8g66ydoZhpxBBFhlW2mhQ==", "reserved_seat"=>{"movie_id"=>"1", "seat_number_array"=>["B-1"]}, "commit"=>"Create Reserved seat", "movie_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (41.8ms)[0m  INSERT INTO "reserved_seats" ("movie_id", "seat_number_array", "user_id", "seat_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["movie_id", 1], ["seat_number_array", "{B-1}"], ["user_id", 2], ["seat_number", "1"], ["created_at", "2018-11-24 08:09:44.293942"], ["updated_at", "2018-11-24 08:09:44.293942"]]
+  [1m[36m (40.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 96ms (ActiveRecord: 82.8ms)
+
+
+Started GET "/movies" for ::1 at 2018-11-24 17:09:44 +0900
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.5ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.slim within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 170ms (Views: 169.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/movies/1" for ::1 at 2018-11-24 17:09:48 +0900
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.3ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 155ms (Views: 153.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-24 17:09:50 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mUser Load (9.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mMovie Load (5.6ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReservedSeat Load (12.2ms)[0m  SELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1  [["movie_id", 1]]
+  Rendered reserved_seats/_seats.html.slim (8.8ms)
+  Rendered reserved_seats/new.html.slim within layouts/application (14.3ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 164ms (Views: 129.7ms | ActiveRecord: 27.1ms)
+  [1m[36mReservedSeat Load (18.4ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats"[0m
+  [1m[35mSQL (53.6ms)[0m  DELETE FROM "reserved_seats"
+  [1m[36mReservedSeat Load (41.6ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats"[0m
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-24 17:15:29 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovie Load (0.5ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (0.5ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+  Rendered reserved_seats/_seats.html.slim (50.6ms)
+  Rendered reserved_seats/new.html.slim within layouts/application (58.2ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.2ms)
+Completed 200 OK in 362ms (Views: 339.0ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/movies/1/reserved_seats" for ::1 at 2018-11-24 17:16:24 +0900
+Processing by ReservedSeatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D9uDIZ5ApVVaLOzOV/jUDbfI3OUsGQNLuqzBWKw+KRAMqr1wOmZlXZWEQL9tKp47hZW87OO3rLS9wtV2UAON+g==", "reserved_seat"=>{"movie_id"=>"1", "seat_number_array"=>["A 1", "A 2"]}, "commit"=>"Create Reserved seat", "movie_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "reserved_seats" ("movie_id", "seat_number_array", "user_id", "seat_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["movie_id", 1], ["seat_number_array", "{\"A 1\",\"A 2\"}"], ["user_id", 2], ["seat_number", "1"], ["created_at", "2018-11-24 08:16:25.129218"], ["updated_at", "2018-11-24 08:16:25.129218"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 143ms (ActiveRecord: 104.3ms)
+
+
+Started GET "/movies" for ::1 at 2018-11-24 17:16:25 +0900
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.7ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.slim within layouts/application (57.5ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 171ms (Views: 121.3ms | ActiveRecord: 44.8ms)
+
+
+Started GET "/movies/1" for ::1 at 2018-11-24 17:16:27 +0900
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (8.1ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered movies/show.html.slim within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 169ms (Views: 157.3ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-24 17:16:28 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mReservedSeat Load (0.3ms)[0m  SELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1  [["movie_id", 1]]
+  Rendered reserved_seats/_seats.html.slim (23.1ms)
+  Rendered reserved_seats/new.html.slim within layouts/application (29.4ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 177ms (Views: 169.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/movies/1/reserved_seats" for ::1 at 2018-11-24 17:16:32 +0900
+Processing by ReservedSeatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZMhUWcahVa1e7IYFiINrfUSMDHfNW/LOK5U4DbOA7+pnuWoIYoeVpZFEKnSyUSFLdtFsfgL1XTEs+ywjT71LAA==", "reserved_seat"=>{"movie_id"=>"1", "seat_number_array"=>["A-1", "A-2"]}, "commit"=>"Create Reserved seat", "movie_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (42.6ms)[0m  [1mINSERT INTO "reserved_seats" ("movie_id", "seat_number_array", "user_id", "seat_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["movie_id", 1], ["seat_number_array", "{A-1,A-2}"], ["user_id", 2], ["seat_number", "1"], ["created_at", "2018-11-24 08:16:32.777180"], ["updated_at", "2018-11-24 08:16:32.777180"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 51ms (ActiveRecord: 44.5ms)
+
+
+Started GET "/movies" for ::1 at 2018-11-24 17:16:32 +0900
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.4ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.slim within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 129ms (Views: 128.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/movies/1" for ::1 at 2018-11-24 17:16:34 +0900
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMovie Load (0.3ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered movies/show.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.erb (0.0ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 143ms (Views: 141.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/movies/1/reserved_seats/new" for ::1 at 2018-11-24 17:16:35 +0900
+Processing by ReservedSeatsController#new as HTML
+  Parameters: {"movie_id"=>"1"}
+  [1m[36mUser Load (2.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mMovie Load (5.7ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (1.7ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+  Rendered reserved_seats/_seats.html.slim (7.9ms)
+  Rendered reserved_seats/new.html.slim within layouts/application (10.4ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.1ms)
+Completed 200 OK in 142ms (Views: 127.2ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/" for ::1 at 2018-11-24 19:42:15 +0900
+Processing by PagesController#index as HTML
+  [1m[35mTicketType Load (50.1ms)[0m  SELECT  "ticket_types".* FROM "ticket_types" WHERE "ticket_types"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered pages/index.html.slim within layouts/application (3.6ms)
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_flash.html.slim (0.4ms)
+Completed 200 OK in 911ms (Views: 542.8ms | ActiveRecord: 157.2ms)
