@@ -298,11 +298,8 @@ DEPENDENCIES
   jquery-rails
   mini_racer
   pg (~> 0.20.0)
-<<<<<<< HEAD
   pundit
-=======
   pry-rails
->>>>>>> 22_reserveSeats
   rails (= 4.2.10)
   rails-i18n
   ransack
