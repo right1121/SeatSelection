@@ -13422,3 +13422,18 @@ Processing by ReservedSeatsController#create as HTML
   Rendered layouts/_header.html.erb (0.1ms)
   Rendered layouts/_flash.html.slim (0.3ms)
 Completed 200 OK in 850ms (Views: 470.0ms | ActiveRecord: 140.3ms)
+
+
+Started POST "/movies/1/reserved_seats" for ::1 at 2018-11-24 16:54:42 +0900
+Processing by ReservedSeatsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1CzFm9zgZtlbxOfwhDc0Xl9HKHIlTzcueAP6HI0I3ujXXfvKeMam0ZRsS4G+5X5obRpIe+rhmNF/be4ycTV6Ag==", "reserved_seat"=>{"movie_id"=>"1", "seat_number_array"=>["B 1", "C 1", "D 1", "E 1", "F 1", "G 1"]}, "commit"=>"Create Reserved seat", "movie_id"=>"1"}
+  [1m[36mUser Load (40.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35mMovie Load (44.3ms)[0m  SELECT  "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mReservedSeat Load (0.9ms)[0m  [1mSELECT "reserved_seats".* FROM "reserved_seats" WHERE "reserved_seats"."movie_id" = $1[0m  [["movie_id", 1]]
+  Rendered reserved_seats/_seats.html.slim (155.3ms)
+  Rendered reserved_seats/new.html.slim within layouts/application (163.6ms)
+  Rendered layouts/_header.html.erb (0.1ms)
+  Rendered layouts/_flash.html.slim (0.2ms)
+Completed 200 OK in 1437ms (Views: 567.6ms | ActiveRecord: 427.2ms)
