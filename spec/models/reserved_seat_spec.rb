@@ -32,4 +32,8 @@ RSpec.describe ReservedSeat, type: :model do
     reserved_seat.valid?
     expect(reserved_seat.errors[:seat_number_array]).to include("translation missing: ja.activerecord.errors.models.reserved_seat.attributes.seat_number_array.too_long")
   end
+
+  example '座席情報の値が「アルファベット、ハイフン、数字」の型以外だと無効な状態であること'
+
+  example '保存したい座席が先に予約されていたら無効な状態であること'
 end
