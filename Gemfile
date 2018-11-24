@@ -23,6 +23,7 @@ group :development, :test do
   gem 'hirb'
   gem 'factory_bot_rails'
   gem 'pry-rails'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
