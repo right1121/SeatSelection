@@ -1,6 +1,9 @@
 class ReservedSeat < ActiveRecord::Base
+  has_many :seat_numbers, dependent: :destroy
+
   belongs_to :user
   belongs_to :movie
+  belongs_to :movie_start_time
 
   validates :seat_number_array, presence: true, length: {maximum: 5}
   validates :user_id, presence: true
