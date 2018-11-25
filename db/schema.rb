@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20181125083324) do
     t.integer  "user_id",             null: false
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
-    t.integer  "movie_start_time_id"
+    t.integer  "movie_start_time_id", null: false
   end
 
   create_table "seat_numbers", force: :cascade do |t|
