@@ -24,4 +24,8 @@ class MoviesController < ApplicationController
       :start_date
     )
   end
+
+  def movie_start_time_params
+    params.require(:movie_start_time).permit(:start_time)
+  end
 end
