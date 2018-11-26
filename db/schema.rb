@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20181125083324) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "movie_start_times", force: :cascade do |t|
-    t.date     "start_time", null: false
+    t.time     "start_time", null: false
     t.integer  "movie_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

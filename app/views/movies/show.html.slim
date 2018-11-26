@@ -1,2 +1,9 @@
 h1 movie_show
-= link_to '座席予約', new_movie_reserved_seat_path(@movie.id)
+h2 = @movie.title
+.content 映画の詳細等
+
+= form_for @movie, url:  do |f|
+  = select_tag "start_times", options_from_collection_for_select(@movie_start_times, :id, :start_time)
+
+
+= link_to '送信ボタン -> 座席予約一覧画面へ飛ぶ', new_movie_reserved_seat_path(@movie.id)

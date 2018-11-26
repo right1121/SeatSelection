@@ -6,7 +6,7 @@ class ReservedSeatsController < ApplicationController
     @user = User.find(2) #仮実装。current_userにする
     @movie = Movie.find(params[:movie_id])
     @reserved_seat = @movie.reserved_seats.new(user_id: @user.id)
-    @buried_seats_array =  @reserved_seat.set_buried_seats(@movie) #複数の予約座席情報の配列を一つの配列にする
+    # @buried_seats_array =  @reserved_seat.set_buried_seats(@movie) #複数の予約座席情報の配列を一つの配列にする
   end
 
   def create
@@ -29,7 +29,7 @@ class ReservedSeatsController < ApplicationController
       :seat_number,
       :movie_id,
       :user_id,
-      seat_number_array: [],
+      :movie_start_time_id
     )
   end
 end
