@@ -20,11 +20,4 @@ User.create(email: 'a@a.a', password: '123456', name: 'ドク', sex: '男', age:
 User.create(email: 'b@b.b', password: '123456', name: 'マーティ', sex: '男', age: '17')
 User.create(email: 'c@c.c', password: '123456', name: 'ヒルデガルド・フォン・マリーンドルフ', sex: '女', age: '36')
 
-ReservedSeat.create(movie_id: 1, user_id: 1, movie_start_time_id: 1)
-ReservedSeat.create(movie_id: 1, user_id: 2, movie_start_time_id: 1)
-ReservedSeat.create(movie_id: 1, user_id: 3, movie_start_time_id: 1)
-ReservedSeat.create(movie_id: 2, user_id: 1, movie_start_time_id: 3)
-ReservedSeat.create(movie_id: 2, user_id: 2, movie_start_time_id: 4)
-ReservedSeat.create(movie_id: 2, user_id: 3, movie_start_time_id: 4)
-
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

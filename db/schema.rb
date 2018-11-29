@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181125083324) do
+ActiveRecord::Schema.define(version: 20181129153717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,20 +71,12 @@ ActiveRecord::Schema.define(version: 20181125083324) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "movie_start_time_id", null: false
-  end
-
-  create_table "seat_numbers", force: :cascade do |t|
-    t.integer  "reserved_seat_id"
     t.string   "seat_number_1"
     t.string   "seat_number_2"
     t.string   "seat_number_3"
     t.string   "seat_number_4"
     t.string   "seat_number_5"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
   end
-
-  add_index "seat_numbers", ["reserved_seat_id"], name: "index_seat_numbers_on_reserved_seat_id", using: :btree
 
   create_table "ticket_types", force: :cascade do |t|
     t.string   "category",   null: false
@@ -113,5 +105,4 @@ ActiveRecord::Schema.define(version: 20181125083324) do
   add_foreign_key "reserved_seats", "movie_start_times"
   add_foreign_key "reserved_seats", "movies"
   add_foreign_key "reserved_seats", "users"
-  add_foreign_key "seat_numbers", "reserved_seats"
 end
