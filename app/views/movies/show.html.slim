@@ -3,5 +3,5 @@ h2 = @movie.title
 .content 映画の詳細等
 
 = form_for @movie, url: select_seat_movie_path(@movie) do |f|
-  .selecter = select_tag "movie_start_time[start_times]", options_from_collection_for_select(@movie_start_times, :id, :start_time)
+  .selecter = select_tag "movie_start_time[movie_start_time_id]", options_from_collection_for_select(@movie_start_times, :id, :start_time)
   .submit = f.submit
