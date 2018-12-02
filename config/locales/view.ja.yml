@@ -4,11 +4,22 @@ ja:
         new:
           title:  'パスワードの再発行'
           submit: '再発行する'
+
     sessions:
         new:
           title:  'ログイン'
           submit: 'ログイン'
+
     registrations:
         new:
           title:  'アカウント登録'
           submit: '登録'
+
+        edit:
+          title:       'アカウント情報の変更'
+          pass_attention:  '変更したくない場合は空白のままにしてください'
+          need_pass:  '変更を確認するために現在のパスワードが必要です'
+          submit:     '更新'
+          cancel:     'アカウントの削除'
+          cancel_button:  'アカウントを削除する'
+          back:       '戻る'
