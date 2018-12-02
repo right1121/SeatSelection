@@ -4,3 +4,7 @@ ja:
         new:
           title:  'パスワードの再発行'
           submit: '再発行する'
+    sessions:
+        new:
+          title:  'ログイン'
+          submit: 'ログイン'
