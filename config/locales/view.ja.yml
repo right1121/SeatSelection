@@ -8,3 +8,7 @@ ja:
         new:
           title:  'ログイン'
           submit: 'ログイン'
+    registrations:
+        new:
+          title:  'アカウント登録'
+          submit: '登録'
