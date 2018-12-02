@@ -1,5 +1,5 @@
 class MovieStartTime < ActiveRecord::Base
-    has_many :reserved_seats, dependent: :destroy
+  has_many :reserved_seats, dependent: :destroy
 
-    belongs_to :movie
+  belongs_to :movie
 end
