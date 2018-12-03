@@ -15,6 +15,7 @@ MovieStartTime.create(start_time: "2018-10-24 10:00", movie_id: 1)
 MovieStartTime.create(start_time: "2018-10-24 15:00", movie_id: 1)
 MovieStartTime.create(start_time: "2018-11-24 11:00", movie_id: 2)
 MovieStartTime.create(start_time: "2018-11-24 13:00", movie_id: 2)
+MovieStartTime.create(start_time: "2018-11-24 16:00", movie_id: 2)
 
 User.create(email: 'a@a.a', password: '123456', name: 'ドク', sex: '男', age: '65')
 User.create(email: 'b@b.b', password: '123456', name: 'マーティ', sex: '男', age: '17')
