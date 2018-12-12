@@ -6,7 +6,11 @@
         table
           tbody
             tr
-              - movie.movie_start_times.each do |movie_start_time|
-                td= form_tag select_seat_movie_path(movie), method: :patch
-                  = hidden_field_tag "movie_start_time[movie_start_time_id]", movie_start_time.id
-                  = submit_tag "#{movie_start_time.start_time}"
+              - 7.times do |i|
+                th= i + 1
+            
+              - movie.movie_start_times.order("start_time").each do |movie_start_time|
+                tr
+                  td= form_tag select_seat_movie_path(movie), method: :patch
+                    = hidden_field_tag "movie_start_time[movie_start_time_id]", movie_start_time.id
+                    = submit_tag "#{movie_start_time.start_time}", class:'submit'
