@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181118143738) do
+ActiveRecord::Schema.define(version: 20181203122119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20181118143738) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "movie_start_times", force: :cascade do |t|
+    t.integer  "movie_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "start_time"
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string   "title",            null: false
     t.date     "start_date"
@@ -59,12 +66,16 @@ ActiveRecord::Schema.define(version: 20181118143738) do
   add_index "movies", ["title"], name: "index_movies_on_title", using: :btree
 
   create_table "reserved_seats", force: :cascade do |t|
-    t.string   "seat_number",       null: false
-    t.integer  "movie_id",          null: false
-    t.integer  "user_id",           null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "seat_number_array", null: false, array: true
+    t.integer  "movie_id",            null: false
+    t.integer  "user_id",             null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "movie_start_time_id", null: false
+    t.string   "seat_number_1"
+    t.string   "seat_number_2"
+    t.string   "seat_number_3"
+    t.string   "seat_number_4"
+    t.string   "seat_number_5"
   end
 
   create_table "ticket_types", force: :cascade do |t|
@@ -90,6 +101,8 @@ ActiveRecord::Schema.define(version: 20181118143738) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "movie_start_times", "movies"
+  add_foreign_key "reserved_seats", "movie_start_times"
   add_foreign_key "reserved_seats", "movies"
   add_foreign_key "reserved_seats", "users"
 end
