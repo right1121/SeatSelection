@@ -6,5 +6,6 @@ class MovieStartTime < ActiveRecord::Base
   # def self.pick_date(date)
   #   self.where(start_time: )
   # test
+  #test
   # end
 end
