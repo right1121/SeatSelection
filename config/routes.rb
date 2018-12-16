@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :movies, only: %i[index show] do
     member do
-      patch :select_seat, controller: :reserved_seats
+      patch :update, controller: "reserved_seats/select_seats", as: :select_seat, path: :select_seat
     end
     resources :reserved_seats, only: %i[create]
   end
