@@ -1,0 +1,2 @@
+module ReservedSeats::SelectSeatsHelper
+end
