@@ -2,12 +2,13 @@ class ReservedSeatsController < ApplicationController
   def create
     @user = User.find(2) #仮実装。current_userにする
     @reserved_seat = @user.reserved_seats.new(reserved_seat_params)
-    seat_number_array = seat_number_array_params["seat_number_array"] #パラメータから配列の座席情報を受け取る
-    @reserved_seat.set_seat_number(seat_number_array) # 座席情報を各seat_numberカラムに追加する
+    @reserved_seat.seat_number = 1 #あとで削除する
     if @reserved_seat.save
-      redirect_to movies_path, notice: '予約しました。'
+      redirect_to movies_path
     else
-      redirect_to movies_path(prams[:movie_id]), alert: '予約に失敗しました。'
+      @movie = Movie.find(params[:movie_id])
+      @buried_seats_array = @reserved_seat.set_buried_seats(@movie)
+      render :new, {movie: @movie, reserved_seat: @reserved_seat}
     end
   end
 
@@ -15,18 +16,10 @@ class ReservedSeatsController < ApplicationController
 
   def reserved_seat_params
     params.require(:reserved_seat).permit(
+      :seat_number,
       :movie_id,
       :user_id,
-      :movie_start_time_id,
-      :seat_number_1,
-      :seat_number_2,
-      :seat_number_3,
-      :seat_number_4,
-      :seat_number_5
+      seat_number_array: [],
     )
-  end
-
-  def seat_number_array_params
-    params.require(:reserved_seat).permit(seat_number_array: [])
   end
 end
