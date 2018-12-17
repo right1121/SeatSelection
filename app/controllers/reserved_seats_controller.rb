@@ -1,14 +1,4 @@
 class ReservedSeatsController < ApplicationController
-  def index
-  end
-  
-  def new
-    @user = User.find(2) #仮実装。current_userにする
-    @movie = Movie.find(params[:movie_id])
-    @reserved_seat = @movie.reserved_seats.new(user_id: @user.id)
-    @buried_seats_array =  @reserved_seat.set_buried_seats(@movie) #複数の予約座席情報の配列を一つの配列にする
-  end
-
   def create
     @user = User.find(2) #仮実装。current_userにする
     @reserved_seat = @user.reserved_seats.new(reserved_seat_params)
